@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金都 · 菜單草稿 v0.3 — 規劃審閱文件</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ead0; --paper-2:#efe1c1; --panel:#fbf5e6;
+    --ink:#2b2017; --ink-soft:#6d5d49; --ink-faint:#9b8a70;
+    --red:#9e1b1b; --red-deep:#6f1212; --gold:#b07d2b; --gold-2:#c9a24e;
+    --line:#d8c197; --line-soft:#e4d3ab;
+    --done:#2f6e43; --done-bg:#e2eedd; --done-bd:#a9cdaa;
+    --price:#9a6410; --price-bg:#f5e6c4; --price-bd:#e0c489;
+    --todo:#a4521d; --todo-bg:#f1ddc5; --todo-bd:#e3bd92;
+    --flag:#a32a22; --flag-bg:#f4ddd4; --flag-bd:#e2b3a6;
+    --shadow:0 1px 0 #fff6 inset, 0 8px 24px -16px #5c3f1c80;
+    --font-brush:"Ma Shan Zheng",cursive;
+    --font-title:"ZCOOL QingKe HuangYou","Noto Serif TC",serif;
+    --font-disp:"Noto Serif TC",serif;
+    --font-body:"Noto Sans TC",sans-serif;
+    --font-label:"Bebas Neue",sans-serif;
+    --font-mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body); color:var(--ink); line-height:1.65;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 18% 12%, #fff7e6 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, #e9d6ad55 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---- top bar ---- */
+  .bar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:10px 22px; background:#fbf5e6e8; backdrop-filter:blur(8px);
+    border-bottom:2px solid var(--red);
+  }
+  .bar__brand{display:flex; align-items:baseline; gap:10px}
+  .bar__mark{font-family:var(--font-brush); font-size:30px; color:var(--red); line-height:1}
+  .bar__tag{font-family:var(--font-label); letter-spacing:2px; font-size:14px; color:var(--gold); }
+  .bar__meta{font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); text-align:right}
+  @media(max-width:600px){ .bar{padding:9px 15px} .bar__meta{font-size:8.5px; line-height:1.5} .bar__mark{font-size:26px} }
+
+  /* ---- frame ---- */
+  .wrap{max-width:1180px; margin:0 auto; padding:34px 22px 90px}
+
+  /* ---- hero ---- */
+  .hero{position:relative; text-align:center; padding:30px 16px 26px; margin-bottom:30px;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .hero::before,.hero::after{content:""; position:absolute; left:0; right:0; height:1px; background:var(--line-soft)}
+  .hero::before{top:5px} .hero::after{bottom:5px}
+  .hero__eyebrow{font-family:var(--font-label); letter-spacing:4px; font-size:15px; color:var(--gold); margin-bottom:8px}
+  .hero__brush{font-family:var(--font-title); font-size:clamp(54px,11vw,98px); color:var(--red); line-height:1.05; letter-spacing:4px; text-shadow:2px 3px 0 #00000012}
+  .hero__title{font-family:var(--font-disp); font-weight:900; font-size:clamp(22px,4vw,34px); letter-spacing:2px; margin-top:4px}
+  .hero__title em{font-family:var(--font-mono); font-style:normal; color:var(--red); font-size:.8em}
+  .hero__sub{color:var(--ink-soft); font-size:15px; margin-top:10px}
+  .hero__stamp{
+    position:absolute; top:14px; right:6px; font-family:var(--font-label); letter-spacing:3px;
+    color:#a32a22aa; border:3px double #a32a22aa; border-radius:8px; padding:4px 12px 2px;
+    transform:rotate(9deg); font-size:20px; pointer-events:none;
+  }
+  @media(max-width:640px){.hero__stamp{display:none}}
+
+  /* notice */
+  .notice{display:flex; gap:12px; align-items:flex-start; max-width:760px; margin:22px auto 0;
+    background:var(--flag-bg); border:1px solid var(--flag-bd); border-left:5px solid var(--flag);
+    padding:13px 16px; border-radius:8px; text-align:left; font-size:13.5px; color:#7a2a22}
+  .notice b{color:var(--flag)}
+
+  /* ---- legend ---- */
+  .legend{display:flex; flex-wrap:wrap; gap:10px 18px; justify-content:center; padding:14px; margin-bottom:34px;
+    background:var(--paper-2); border:1px dashed var(--line); border-radius:10px}
+  .legend span{display:inline-flex; align-items:center; gap:7px; font-size:12.5px; color:var(--ink-soft)}
+  .dot{width:13px; height:13px; border-radius:3px; border:1.5px solid}
+  .dot--done{background:var(--done-bg); border-color:var(--done)}
+  .dot--price{background:var(--price-bg); border-color:var(--price)}
+  .dot--todo{background:var(--todo-bg); border-color:var(--todo)}
+  .dot--flag{background:var(--flag-bg); border-color:var(--flag)}
+
+  /* ---- 5 categories overview ---- */
+  .cats{margin:0 0 28px}
+  .cats__title{font-family:var(--font-label); letter-spacing:3px; color:var(--gold); font-size:16px; text-align:center; margin-bottom:14px}
+  .cats__grid{display:grid; grid-template-columns:repeat(5,1fr); gap:12px}
+  .cat{display:flex; gap:10px; align-items:flex-start; background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--red); border-radius:10px; padding:13px 12px; box-shadow:var(--shadow)}
+  .cat__no{flex:none; width:28px; height:28px; border-radius:50%; background:var(--red); color:var(--paper); font-family:var(--font-label); font-size:16px; display:grid; place-items:center}
+  .cat b{font-family:var(--font-disp); font-weight:900; font-size:15.5px; display:block; line-height:1.2}
+  .cat small{display:block; font-size:10px; color:var(--ink-faint); font-family:var(--font-mono); margin-top:2px; letter-spacing:.5px}
+  .cat i{display:block; font-style:normal; font-size:11.5px; color:var(--gold); margin-top:6px; line-height:1.4}
+  @media(max-width:860px){.cats__grid{grid-template-columns:repeat(2,1fr)} .cat:last-child{grid-column:1/-1}}
+  @media(max-width:480px){.cats__grid{grid-template-columns:1fr}}
+
+  /* ---- sub-category header (within a section) ---- */
+  .subcat{font-family:var(--font-disp); font-weight:900; font-size:19px; color:var(--ink); margin:26px 0 10px; padding-bottom:7px; border-bottom:2px solid var(--line); display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .subcat span:not(.sec__cat){font-family:var(--font-label); letter-spacing:2px; color:var(--gold); font-size:13px; font-weight:400}
+
+  /* ---- section ---- */
+  .sec{margin:0 0 40px}
+  .sec__head{display:flex; align-items:center; gap:14px; margin-bottom:6px}
+  .sec__no{flex:none; width:46px; height:46px; border-radius:50%; background:var(--red); color:#f4ead0;
+    font-family:var(--font-label); font-size:22px; display:grid; place-items:center; box-shadow:0 4px 12px -6px var(--red-deep)}
+  .sec__titles{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+  .sec__zh{font-family:var(--font-disp); font-weight:900; font-size:25px; letter-spacing:1px}
+  .sec__en{font-family:var(--font-label); letter-spacing:2px; color:var(--gold); font-size:16px}
+  .sec__time{font-family:var(--font-mono); font-size:12px; color:#fff; background:var(--ink); padding:2px 9px; border-radius:20px}
+  .sec__cat{font-family:var(--font-mono); font-size:11px; color:var(--gold); border:1px solid var(--gold); padding:1px 8px; border-radius:20px}
+  .sec__rule{height:2px; background:linear-gradient(90deg,var(--red),var(--gold) 40%,transparent); margin:10px 0 20px; border-radius:2px}
+  .sec__desc{color:var(--ink-soft); font-size:14px; margin:-8px 0 18px; padding-left:60px}
+
+  /* ---- grid of items ---- */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(265px,1fr)); gap:16px}
+  .item{position:relative; background:var(--panel); border:1px solid var(--line); border-left-width:5px; border-radius:10px;
+    padding:16px 16px 15px; box-shadow:var(--shadow); animation:rise .5s both}
+  .item--done{border-left-color:var(--done)} .item--price{border-left-color:var(--price)}
+  .item--todo{border-left-color:var(--todo)}
+  .item__chop{position:absolute; top:11px; right:11px; font-family:var(--font-mono); font-weight:700; font-size:10.5px;
+    letter-spacing:.5px; padding:3px 8px; border-radius:5px; transform:rotate(-3deg); border:1.5px solid; white-space:nowrap}
+  .chop--done{color:var(--done); background:var(--done-bg); border-color:var(--done-bd)}
+  .chop--price{color:var(--price); background:var(--price-bg); border-color:var(--price-bd)}
+  .chop--todo{color:var(--todo); background:var(--todo-bg); border-color:var(--todo-bd)}
+  .item__code{font-family:var(--font-label); font-size:24px; color:var(--gold); line-height:1; margin-bottom:3px}
+  .item__name{font-family:var(--font-disp); font-weight:700; font-size:18px; margin-bottom:6px; padding-right:54px}
+  .item__star{color:var(--red); font-size:13px; font-family:var(--font-body); font-weight:700}
+  .item__desc{font-size:13.5px; color:var(--ink-soft); margin-bottom:10px}
+  .item__opts{font-size:12.5px; color:var(--ink-soft); margin-bottom:10px}
+  .item__opts b{color:var(--ink); font-weight:500}
+  .pill{display:inline-block; font-family:var(--font-mono); font-size:11px; background:var(--paper); border:1px solid var(--line);
+    border-radius:5px; padding:1px 7px; margin:2px 3px 0 0; color:var(--ink)}
+  .item__price{font-family:var(--font-mono); font-weight:700; font-size:21px; color:var(--red)}
+  .item__price small{font-size:12px; color:var(--ink-faint); font-weight:400}
+  .item__tbd{font-family:var(--font-mono); font-weight:700; font-size:14px; color:var(--todo)}
+  .item__flag{margin-top:11px; font-size:12.5px; color:#8c2a22; background:var(--flag-bg); border:1px solid var(--flag-bd);
+    border-radius:7px; padding:8px 10px; line-height:1.5}
+  .item__flag b{color:var(--flag)}
+
+  /* ---- H health badge (logo) ---- */
+  .h-badge{display:inline-flex; align-items:center; gap:4px; vertical-align:middle; margin-left:6px;
+    background:var(--done-bg); border:1px solid var(--done-bd); border-radius:20px; padding:1px 9px 1px 3px}
+  .h-badge i{display:inline-grid; place-items:center; width:18px; height:18px; border-radius:50%;
+    background:var(--done); color:#fff; font-family:var(--font-label); font-size:12px; font-style:normal; line-height:1}
+  .h-badge b{font-family:var(--font-disp); font-weight:700; font-size:10.5px; color:var(--done); letter-spacing:.5px}
+
+  /* drink chips */
+  .drinks{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:14px}
+  .drink{font-family:var(--font-disp); font-weight:600; font-size:15px; background:var(--panel); border:1px solid var(--line);
+    border-radius:30px; padding:7px 16px; box-shadow:var(--shadow)}
+  .drink small{font-family:var(--font-mono); font-size:10px; color:var(--ink-faint)}
+
+  /* callout panel (health) */
+  .prop{background:linear-gradient(180deg,#fbf5e6,#f3e6c8); border:1px solid var(--gold); border-radius:12px; padding:20px 22px;
+    box-shadow:var(--shadow); position:relative}
+  .prop__tag{position:absolute; top:-12px; left:20px; font-family:var(--font-label); letter-spacing:2px; font-size:14px;
+    background:var(--gold); color:#fff; padding:3px 12px; border-radius:20px}
+  .prop h4{font-family:var(--font-disp); font-size:17px; margin:6px 0 4px; color:var(--red-deep)}
+  .prop ul{list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px 22px; margin:8px 0 4px}
+  .prop li{font-size:13.5px; padding-left:18px; position:relative; color:var(--ink)}
+  .prop li::before{content:"●"; position:absolute; left:0; color:var(--gold); font-size:10px; top:5px}
+  .prop li b{color:var(--red-deep)}
+
+  /* story echo */
+  .story{background:var(--ink); color:#f4ead0; border-radius:12px; padding:24px 24px; position:relative; overflow:hidden}
+  .story::before{content:"金都"; position:absolute; right:-6px; bottom:-26px; font-family:var(--font-brush); font-size:130px; color:#ffffff0d; line-height:1}
+  .story__tag{font-family:var(--font-label); letter-spacing:3px; color:var(--gold-2); font-size:15px}
+  .story h3{font-family:var(--font-disp); font-size:21px; margin:4px 0 12px}
+  .story h4.story__sub{font-family:var(--font-disp); font-size:16px; color:var(--gold-2); margin:16px 0 6px}
+  .story__copy{border-left:3px solid var(--gold-2); padding-left:16px; margin:4px 0 14px; max-width:790px}
+  .story__copy p{font-family:var(--font-disp); font-size:15.5px; line-height:1.95; color:#f3e7cd; margin-bottom:7px}
+  .story__copy b{color:#fff}
+  .story__copy .story__last{font-size:18px; color:var(--gold-2); margin-top:5px; letter-spacing:1px}
+  .story__en{max-width:790px; margin:0 0 6px; padding-left:16px; border-left:3px solid #ffffff20}
+  .story__en p{font-size:12px; line-height:1.7; color:#ccbb9b; font-style:italic; margin-bottom:5px}
+  .story__divider{height:1px; background:#ffffff20; margin:18px 0 4px; max-width:790px}
+  .story__arc{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:12px 0 16px}
+  .story__arc span{background:#ffffff14; border:1px solid #ffffff2a; border-radius:8px; padding:7px 13px; font-size:14px; font-family:var(--font-disp)}
+  .story__arc i{color:var(--gold-2); font-style:normal; font-size:18px}
+  .story ul{margin:6px 0 0 2px; list-style:none}
+  .story li{position:relative; padding-left:20px; margin-bottom:7px; font-size:14px; color:#f0e3c8}
+  .story li::before{content:"❖"; position:absolute; left:0; color:var(--gold-2); font-size:12px}
+  .story li b{color:#fff}
+
+  /* summary table */
+  .tbl{width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; font-size:13.5px}
+  .tbl th{background:var(--red); color:#f4ead0; font-family:var(--font-disp); font-weight:600; text-align:left; padding:11px 14px; font-size:14px}
+  .tbl td{padding:11px 14px; border-top:1px solid var(--line-soft); vertical-align:top}
+  .tbl tr:nth-child(even) td{background:#fbf5e680}
+  .tbl .k{font-family:var(--font-mono); font-size:11px; white-space:nowrap; color:var(--red); font-weight:700}
+  .tag{display:inline-block; font-family:var(--font-mono); font-size:10px; font-weight:700; padding:1px 7px; border-radius:4px; border:1px solid}
+  .tag--p{color:var(--price); background:var(--price-bg); border-color:var(--price-bd)}
+  .tag--n{color:var(--todo); background:var(--todo-bg); border-color:var(--todo-bd)}
+  .tag--l{color:var(--flag); background:var(--flag-bg); border-color:var(--flag-bd)}
+
+  /* checklist */
+  .check{display:grid; gap:11px; counter-reset:c}
+  .check__i{counter-increment:c; display:flex; gap:14px; align-items:flex-start; background:var(--panel);
+    border:1px solid var(--line); border-radius:10px; padding:14px 16px; box-shadow:var(--shadow)}
+  .check__i::before{content:counter(c,decimal-leading-zero); font-family:var(--font-label); font-size:24px; color:var(--gold);
+    background:var(--paper); border:1.5px solid var(--line); border-radius:7px; min-width:42px; height:42px; display:grid; place-items:center; flex:none}
+  .check__t{font-weight:500; font-size:14.5px; margin-bottom:2px}
+  .check__d{font-size:13px; color:var(--ink-soft)}
+  .check__d em{font-style:normal; color:var(--done); font-weight:500}
+
+  h2.block{font-family:var(--font-disp); font-weight:900; font-size:24px; margin:50px 0 6px; display:flex; align-items:center; gap:12px}
+  h2.block::before{content:""; width:30px; height:30px; background:var(--gold); border-radius:6px; transform:rotate(45deg); box-shadow:inset 0 0 0 4px var(--paper)}
+  .block-rule{height:2px; background:linear-gradient(90deg,var(--gold),transparent); margin-bottom:22px}
+
+  .foot{text-align:center; margin-top:60px; padding-top:24px; border-top:1px solid var(--line); color:var(--ink-faint); font-size:12.5px}
+  .foot b{font-family:var(--font-brush); color:var(--red); font-size:18px; font-weight:400}
+
+  @keyframes rise{from{opacity:0; transform:translateY(14px)}to{opacity:1; transform:none}}
+  .grid .item:nth-child(2){animation-delay:.05s} .grid .item:nth-child(3){animation-delay:.1s}
+  .grid .item:nth-child(4){animation-delay:.15s} .grid .item:nth-child(5){animation-delay:.2s}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar__brand">
+    <span class="bar__mark">金都</span>
+    <span class="bar__tag">MENU DRAFT v0.3</span>
+  </div>
+  <div class="bar__meta">內部規劃文件 · 非正式網站<br>更新 2026-06-08</div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__stamp">DRAFT</div>
+    <div class="hero__eyebrow">KAM DO · 內部規劃審閱</div>
+    <div class="hero__brush">菜單草稿</div>
+    <h1 class="hero__title">規劃總覽 <em>v0.3</em></h1>
+    <p class="hero__sub">一眼睇清：菜單內容 · 我的建議 · 仲要傾嘅問題</p>
+    <div class="notice">
+      <span style="font-size:18px">⚠️</span>
+      <div><b>呢份係規劃文件，唔係正式網站。</b></div>
+    </div>
+  </header>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <span><i class="dot dot--done"></i> ✓ 已定（內容＋價齊）</span>
+    <span><i class="dot dot--price"></i> $ 待定價（有內容，未有價）</span>
+    <span><i class="dot dot--todo"></i> ✎ 待補（內容本身未齊）</span>
+    <span><i class="dot dot--flag"></i> ⚠ 我的建議／問題</span>
+    <span><span class="h-badge"><i>H</i><b>健康</b></span> 有蛋產品（初榨橄欖油＋有機走地雞蛋）</span>
+  </div>
+
+  <!-- 5 CATEGORIES -->
+  <div class="cats">
+    <div class="cats__title">五大類別 · 5 CATEGORIES</div>
+    <div class="cats__grid">
+      <div class="cat"><span class="cat__no">1</span><div><b>茶餐廳</b><small>CHA CHAAN TENG</small><i>早餐 · 飲品</i></div></div>
+      <div class="cat"><span class="cat__no">2</span><div><b>Bakery 餅店</b><small>BAKERY</small><i>菠蘿包(主打) · 麵包 · 蛋塔 · 酥餅</i></div></div>
+      <div class="cat"><span class="cat__no">3</span><div><b>焗飯</b><small>BAKED RICE</small><i>豬扒飯／肉醬肉丸意粉</i></div></div>
+      <div class="cat"><span class="cat__no">4</span><div><b>BBQ 燒臘</b><small>ROAST MEATS</small><i>雙拼飯</i></div></div>
+      <div class="cat"><span class="cat__no">5</span><div><b>大碗麵</b><small>BIG BOWL NOODLES</small><i>a set ＋ b set</i></div></div>
+    </div>
+  </div>
+
+  <!-- QUALITY / HEALTH -->
+  <div class="prop" style="margin:0 0 36px">
+    <span class="prop__tag">品質 · 健康</span>
+    <h4>用心選料 · <span class="h-badge"><i>H</i><b>健康</b></span> 標識</h4>
+    <ul>
+      <li><b>初榨橄欖油</b> —— 全線採用</li>
+      <li><b>有機走地雞蛋</b> —— 所有雞蛋均為有機走地雞蛋</li>
+      <li><b>「H」標識</b> —— 凡有蛋產品以初榨橄欖油 ＋ 有機走地雞蛋製作，標上 <span class="h-badge"><i>H</i><b>健康</b></span>（logo 可再設計）</li>
+    </ul>
+  </div>
+
+  <!-- 00 DRINKS -->
+  <section class="sec">
+    <div class="sec__head">
+      <div class="sec__no">00</div>
+      <div class="sec__titles">
+        <span class="sec__zh">飲品</span><span class="sec__en">DRINKS</span>
+        <span class="sec__time">全日</span><span class="sec__cat">類別：茶餐廳</span>
+      </div>
+    </div>
+    <div class="sec__rule"></div>
+    <p class="sec__desc" style="padding-left:0">套餐可自選一款；單買 <b style="font-family:var(--font-mono);color:var(--red)">$5</b>。<b style="color:var(--done)">凍熱同價（凍飲不加錢）</b>。</p>
+    <div class="drinks">
+      <span class="drink">港式咖啡</span>
+      <span class="drink">港式奶茶</span>
+      <span class="drink">鴛鴦</span>
+      <span class="drink">凍檸茶</span>
+      <span class="drink">凍檸水</span>
+    </div>
+  </section>
+
+  <!-- 01 BREAKFAST -->
+  <section class="sec">
+    <div class="sec__head">
+      <div class="sec__no">01</div>
+      <div class="sec__titles">
+        <span class="sec__zh">早餐</span><span class="sec__en">BREAKFAST</span>
+        <span class="sec__time">7:00am – 11:30am（last call）</span><span class="sec__cat">類別：茶餐廳</span>
+      </div>
+    </div>
+    <div class="sec__rule"></div>
+
+    <h3 class="subcat">常餐 <span>SET</span></h3>
+    <p class="sec__desc" style="padding-left:0;margin:0 0 14px">是日餐包：迷你菠蘿包 或 迷你雞尾包。</p>
+    <div class="grid">
+      <article class="item item--done">
+        <div class="item__chop chop--done">✓ 已定</div>
+        <div class="item__code">A</div>
+        <div class="item__name">A 餐 <span class="h-badge"><i>H</i><b>健康</b></span></div>
+        <div class="item__desc">火腿通粉 ＋ 餐肉腸仔 ＋ 炒蛋或煎蛋 ＋ 是日餐包 ＋ 飲品</div>
+        <div class="item__price">$12.99</div>
+      </article>
+      <article class="item item--done">
+        <div class="item__chop chop--done">✓ 已定</div>
+        <div class="item__code">B</div>
+        <div class="item__name">B 餐 <span class="h-badge"><i>H</i><b>健康</b></span></div>
+        <div class="item__desc">沙爹牛肉公仔麵 ＋ 炒蛋或煎蛋 ＋ 是日餐包 ＋ 飲品</div>
+        <div class="item__price">$12.99</div>
+      </article>
+    </div>
+
+    <h3 class="subcat">西式 M 早餐 <span>GRAB &amp; GO</span></h3>
+    <div class="grid">
+      <article class="item item--done">
+        <div class="item__chop chop--done">✓ 已定</div>
+        <div class="item__code">M</div>
+        <div class="item__name">火腿雞蛋三明治（方包） <span class="h-badge"><i>H</i><b>健康</b></span></div>
+        <div class="item__desc">火腿雞蛋三明治（方包） ＋ 飲品</div>
+        <div class="item__price">$8.99</div>
+      </article>
+      <article class="item item--done">
+        <div class="item__chop chop--done">✓ 已定</div>
+        <div class="item__code">M</div>
+        <div class="item__name">沙爹牛肉菠蘿包</div>
+        <div class="item__desc">沙爹牛肉菠蘿包 ＋ 飲品</div>
+        <div class="item__price">$8.99</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 02 LUNCH -->
+  <section class="sec">
+    <div class="sec__head">
+      <div class="sec__no">02</div>
+      <div class="sec__titles">
+        <span class="sec__zh">午餐</span><span class="sec__en">LUNCH</span>
+        <span class="sec__time">11:30am – 2:00pm</span>
+      </div>
+    </div>
+    <div class="sec__rule"></div>
+
+    <h3 class="subcat">焗飯 <span>BAKED RICE</span> <span class="sec__cat">類別 3 · A</span></h3>
+    <div class="grid">
+      <article class="item item--done">
+        <div class="item__chop chop--done">✓ 已定價</div>
+        <div class="item__code">A</div>
+        <div class="item__name">焗飯 <span style="font-size:12px;color:var(--ink-faint)">Grab &amp; Go</span></div>
+        <div class="item__opts"><b>二選一：</b><span class="pill">a · 豬扒飯</span><span class="pill">b · 肉醬肉丸意粉</span></div>
+        <div class="item__price">$15.99</div>
+      </article>
+    </div>
+
+    <h3 class="subcat">燒臘 BBQ <span>ROAST MEATS</span> <span class="sec__cat">類別 4 · B</span></h3>
+    <div class="grid">
+      <article class="item item--done">
+        <div class="item__chop chop--done">✓ 已定價</div>
+        <div class="item__code">B</div>
+        <div class="item__name">雙拼飯</div>
+        <div class="item__opts"><b>雙拼任揀 2：</b><span class="pill">豉油雞</span><span class="pill">叉燒</span><span class="pill">白切雞</span><span class="pill">鹵水鵝／鴨</span></div>
+        <div class="item__price">$15.99</div>
+      </article>
+    </div>
+
+    <h3 class="subcat">大碗麵 <span>BIG BOWL NOODLES</span> <span class="sec__cat">類別 5 · C</span></h3>
+    <p class="sec__desc" style="padding-left:0;margin:0 0 12px"><b style="font-family:var(--font-mono);color:var(--red);font-size:16px">$15.99</b> · 自選麵底 ＋ a set ＋ b set　<span style="color:var(--ink-faint)">（大碗麵部分不設 H 標識）</span></p>
+    <p style="font-size:13px;color:var(--ink-soft);margin-bottom:10px"><b style="color:var(--ink)">麵底：</b><span class="pill">蕎麥麵</span><span class="pill">烏冬麵</span><span class="pill">瀨粉</span><span class="pill">魚麵</span></p>
+    <table class="tbl">
+      <thead><tr><th style="width:50%">a set</th><th>b set</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>豬手、牛筋、牛腩</td>
+          <td>魚腐、魚蛋、什丸</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="item__flag" style="max-width:760px;margin-top:12px"><b>⚠ 待傾：</b>a set／b set 各揀幾多款？加額外配料點收？</div>
+  </section>
+
+  <!-- 03 BAKERY -->
+  <section class="sec">
+    <div class="sec__head">
+      <div class="sec__no">03</div>
+      <div class="sec__titles">
+        <span class="sec__zh">餅店</span><span class="sec__en">BAKERY</span>
+        <span class="sec__time">全日</span>
+      </div>
+    </div>
+    <div class="sec__rule"></div>
+    <div class="grid">
+      <article class="item item--todo" style="grid-column:1/-1">
+        <div class="item__chop chop--todo">✎ 待補</div>
+        <div class="item__code">包</div>
+        <div class="item__name">菠蘿包 <span class="item__star">★ 全店主打／招牌</span></div>
+        <div class="item__desc">主打菠蘿包；另含 Kam Do Bakery 各式麵包、蛋塔、中式酥餅。</div>
+        <div class="item__opts"><b>包含：</b><span class="pill">菠蘿包（主打）</span><span class="pill">各式麵包</span><span class="pill">蛋塔／葡撻</span><span class="pill">中式酥餅</span></div>
+        <div class="item__flag"><b>⚠ 待補：</b>各式麵包款式同定價，待你提供清單。</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- STORY ECHO -->
+  <h2 class="block">故事呼應</h2>
+  <div class="block-rule"></div>
+  <div class="story">
+    <div class="story__tag">HEAD ↔ TAIL · 首尾呼應</div>
+    <h3>開頭故事 · 定稿</h3>
+    <div class="story__copy">
+      <p>金都的故事，從 1986 年的香港說起 —— 一間街角茶餐廳，一鑊熱氣，一份港式人情。</p>
+      <p>1993 年，我們帶著同一份手藝跨過太平洋，在溫哥華照舊開起茶餐廳。後來，招牌的菠蘿包與蛋塔越做越旺，金都漸漸成了街坊熟知的餅店。</p>
+      <p>走得再遠，也不忘來時的路。如今<b>返璞歸真</b>，做回那間有鑊氣、有人情味的港式茶餐廳。</p>
+      <p class="story__last">金都，味道如昔。</p>
+    </div>
+    <div class="story__en">
+      <p>The Kam Do story begins in Hong Kong, 1986 — a corner cha chaan teng, a hot wok, and a warmth you could taste.</p>
+      <p>In 1993, we carried the same craft across the Pacific and opened our doors in Vancouver, a cha chaan teng once again. In time, our pineapple buns and egg tarts grew so beloved that, to many, Kam Do became a bakery.</p>
+      <p>But however far you travel, you never forget where you began. Today we return to our roots — back to the wok-fire, the warmth, and the cha chaan teng that started it all.</p>
+      <p>Kam Do — still the taste you remember.</p>
+    </div>
+    <div class="story__divider"></div>
+    <h4 class="story__sub">點樣同菜單首尾呼應</h4>
+    <div class="story__arc">
+      <span>茶餐廳<br><small style="color:#caa050">根</small></span><i>→</i>
+      <span>Bakery<br><small style="color:#caa050">餅店那一章</small></span><i>→</i>
+      <span>焗飯 · BBQ · 大碗麵<br><small style="color:#caa050">長大後的全餐</small></span>
+    </div>
+    <ul>
+      <li><b>菠蘿包＝全店主打／招牌</b> —— 故事與封面圍繞菠蘿包；佢亦係 西式M早餐同 Bakery 嘅主角，前後呼應。</li>
+      <li><b>蛋塔貫穿 Bakery</b> —— 故事可名正言順提「招牌菠蘿包同蛋塔，愈做愈旺」。</li>
+      <li><b>5 大類別照故事弧線排</b> —— 由「根」行到「長大」，呼應 1986 起家 → 做成餅店 → 回歸本心。</li>
+      <li><b>沙爹牛肉</b>係另一招牌口味，貫穿 早餐 B ＋ 西式M早餐菠蘿包，一併寫入故事。</li>
+      <li><b>收尾</b>：菜單行完，尾段用「<b>味道如昔</b>」或「<b>返璞歸真</b>」帶返開頭故事，頭尾抱住成份菜單。</li>
+    </ul>
+  </div>
+
+  <!-- SUGGESTIONS SUMMARY -->
+  <h2 class="block">建議 &amp; 問題 匯總</h2>
+  <div class="block-rule"></div>
+  <table class="tbl">
+    <thead><tr><th style="width:130px">項目</th><th style="width:74px">類型</th><th>內容</th></tr></thead>
+    <tbody>
+      <tr><td class="k">大碗麵</td><td><span class="tag tag--l">問題</span></td><td>a set／b set 各揀幾多款？加額外配料點收？（$15.99）</td></tr>
+      <tr><td class="k">餅店</td><td><span class="tag tag--n">待補</span></td><td>各式麵包款式同定價待提供。</td></tr>
+      <tr><td class="k">時段</td><td><span class="tag tag--l">問題</span></td><td>早餐至 11:30（last call）、午餐至 2:00pm；2:00pm 後有冇供應？</td></tr>
+    </tbody>
+  </table>
+
+  <!-- CHECKLIST -->
+  <h2 class="block">需要你拍板 / 補資料</h2>
+  <div class="block-rule"></div>
+  <div class="check">
+    <div class="check__i"><div><div class="check__t">網頁主導航：用「類別」定「時段」？</div><div class="check__d"><em>我建議：</em>5 大類別做主導航，時段（早／午）做標籤。</div></div></div>
+    <div class="check__i"><div><div class="check__t">大碗麵配料規則</div><div class="check__d">a set／b set 各揀幾多款？加額外配料點收費？</div></div></div>
+    <div class="check__i"><div><div class="check__t">Bakery 麵包清單</div><div class="check__d">各式麵包款式同價（菠蘿包＝主打；蛋塔、中式酥餅已定有售）。</div></div></div>
+    <div class="check__i"><div><div class="check__t">營業時段</div><div class="check__d">2:00pm 後有冇供應？（v0.3 暫得早餐／午餐／飲品／餅店）</div></div></div>
+    <div class="check__i"><div><div class="check__t">H 健康 logo</div><div class="check__d">有蛋產品標 H（初榨橄欖油＋有機走地雞蛋）；logo 要唔要再設計？</div></div></div>
+  </div>
+
+  <div class="foot">
+    <b>金都</b><br>
+    內部規劃文件 · 菜單草稿 v0.3 · 內容僅供內部討論
+  </div>
+
+</div>
+</body>
+</html>
