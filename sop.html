@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>金都 · 營運 SOP v0.2 — 人手 · 班次 · 職責 · 交接班</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ead0; --paper-2:#efe1c1; --panel:#fbf5e6;
+    --ink:#2b2017; --ink-soft:#6d5d49; --ink-faint:#9b8a70;
+    --red:#9e1b1b; --red-deep:#6f1212; --gold:#b07d2b; --gold-2:#c9a24e;
+    --line:#d8c197; --line-soft:#e4d3ab;
+    --done:#2f6e43; --done-bg:#e2eedd; --done-bd:#a9cdaa;
+    --price:#9a6410; --price-bg:#f5e6c4; --price-bd:#e0c489;
+    --todo:#a4521d; --todo-bg:#f1ddc5; --todo-bd:#e3bd92;
+    --flag:#a32a22; --flag-bg:#f4ddd4; --flag-bd:#e2b3a6;
+    --shadow:0 1px 0 #fff6 inset, 0 8px 24px -16px #5c3f1c80;
+    --font-brush:"Ma Shan Zheng",cursive;
+    --font-title:"ZCOOL QingKe HuangYou","Noto Serif TC",serif;
+    --font-disp:"Noto Serif TC",serif;
+    --font-body:"Noto Sans TC",sans-serif;
+    --font-label:"Bebas Neue",sans-serif;
+    --font-mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body); color:var(--ink); line-height:1.65;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 18% 12%, #fff7e6 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, #e9d6ad55 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .bar{position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:10px 22px; background:#fbf5e6e8; backdrop-filter:blur(8px); border-bottom:2px solid var(--red)}
+  .bar__brand{display:flex; align-items:baseline; gap:10px}
+  .bar__mark{font-family:var(--font-brush); font-size:30px; color:var(--red); line-height:1}
+  .bar__tag{font-family:var(--font-label); letter-spacing:2px; font-size:14px; color:var(--gold)}
+  .bar__meta{font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); text-align:right}
+  .bar__link{font-family:var(--font-mono); font-size:11px; color:var(--red); text-decoration:none; border:1px solid var(--line);
+    border-radius:20px; padding:3px 11px; white-space:nowrap}
+  .bar__link:hover{background:var(--red); color:var(--paper); border-color:var(--red)}
+  @media(max-width:600px){ .bar{padding:9px 15px} .bar__meta{font-size:8.5px; line-height:1.5} .bar__mark{font-size:26px} }
+
+  .nav{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:0 0 30px}
+  .nav a{font-family:var(--font-mono); font-size:11.5px; text-decoration:none; color:var(--ink-soft);
+    background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:5px 13px; transition:.15s}
+  .nav a:hover{background:var(--red); color:var(--paper); border-color:var(--red)}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:34px 22px 90px}
+
+  .hero{position:relative; text-align:center; padding:30px 16px 26px; margin-bottom:24px;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .hero::before,.hero::after{content:""; position:absolute; left:0; right:0; height:1px; background:var(--line-soft)}
+  .hero::before{top:5px} .hero::after{bottom:5px}
+  .hero__eyebrow{font-family:var(--font-label); letter-spacing:4px; font-size:15px; color:var(--gold); margin-bottom:8px}
+  .hero__brush{font-family:var(--font-title); font-size:clamp(48px,10vw,90px); color:var(--red); line-height:1.05; letter-spacing:4px; text-shadow:2px 3px 0 #00000012}
+  .hero__title{font-family:var(--font-disp); font-weight:900; font-size:clamp(20px,3.6vw,31px); letter-spacing:2px; margin-top:4px}
+  .hero__title em{font-family:var(--font-mono); font-style:normal; color:var(--red); font-size:.8em}
+  .hero__sub{color:var(--ink-soft); font-size:15px; margin-top:10px}
+  .hero__stamp{position:absolute; top:14px; right:6px; font-family:var(--font-label); letter-spacing:3px;
+    color:#a32a22aa; border:3px double #a32a22aa; border-radius:8px; padding:4px 12px 2px; transform:rotate(9deg); font-size:20px; pointer-events:none}
+  @media(max-width:640px){.hero__stamp{display:none}}
+
+  /* 本版設定 strip */
+  .facts{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:900px; margin:20px auto 0}
+  .facts span{font-size:12.5px; background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:4px 13px; color:var(--ink-soft)}
+  .facts b{color:var(--red-deep); font-weight:700}
+
+  .kpi{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:26px 0 8px}
+  .kpi__i{background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--gold); border-radius:10px;
+    padding:14px 12px; text-align:center; box-shadow:var(--shadow)}
+  .kpi__n{font-family:var(--font-mono); font-weight:700; font-size:26px; color:var(--red); line-height:1.15}
+  .kpi__n small{font-size:13px; color:var(--ink-faint); font-weight:400}
+  .kpi__l{font-size:12px; color:var(--ink-soft); margin-top:4px}
+  @media(max-width:640px){.kpi{grid-template-columns:repeat(2,1fr)}}
+
+  h2.block{font-family:var(--font-disp); font-weight:900; font-size:24px; margin:52px 0 6px; display:flex; align-items:center; gap:12px; scroll-margin-top:70px}
+  h2.block::before{content:""; width:30px; height:30px; background:var(--gold); border-radius:6px; transform:rotate(45deg); box-shadow:inset 0 0 0 4px var(--paper)}
+  h2.block em{font-family:var(--font-label); font-style:normal; letter-spacing:2px; color:var(--gold); font-size:16px}
+  .block-rule{height:2px; background:linear-gradient(90deg,var(--gold),transparent); margin-bottom:22px}
+  h3.subcat{font-family:var(--font-disp); font-weight:900; font-size:19px; color:var(--ink); margin:30px 0 12px;
+    padding-bottom:7px; border-bottom:2px solid var(--line); display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  h3.subcat span{font-family:var(--font-label); letter-spacing:2px; color:var(--gold); font-size:13px; font-weight:400}
+  .lead{color:var(--ink-soft); font-size:14px; margin:-6px 0 18px}
+
+  .tbl{width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; font-size:13.5px}
+  .tbl th{background:var(--red); color:#f4ead0; font-family:var(--font-disp); font-weight:600; text-align:left; padding:11px 14px; font-size:14px; white-space:nowrap}
+  .tbl td{padding:11px 14px; border-top:1px solid var(--line-soft); vertical-align:top}
+  .tbl tr:nth-child(even) td{background:#fbf5e680}
+  .tbl .k{font-family:var(--font-mono); font-size:11px; white-space:nowrap; color:var(--red); font-weight:700}
+  .tbl .t{font-family:var(--font-mono); font-weight:700; color:var(--ink); white-space:nowrap}
+  .tbl .num{font-family:var(--font-mono); text-align:center; white-space:nowrap}
+  .tbl-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .tag{display:inline-block; font-family:var(--font-mono); font-size:10px; font-weight:700; padding:1px 7px; border-radius:4px; border:1px solid; white-space:nowrap}
+  .tag--d{color:var(--done); background:var(--done-bg); border-color:var(--done-bd)}
+  .tag--n{color:var(--todo); background:var(--todo-bg); border-color:var(--todo-bd)}
+
+  /* roster cards */
+  .roster{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px}
+  .role{position:relative; background:var(--panel); border:1px solid var(--line); border-left-width:5px; border-radius:10px;
+    padding:15px 16px 14px; box-shadow:var(--shadow)}
+  .role--am{border-left-color:var(--gold)} .role--pm{border-left-color:var(--red)}
+  .role__chop{position:absolute; top:11px; right:11px; font-family:var(--font-mono); font-weight:700; font-size:10.5px;
+    letter-spacing:.5px; padding:3px 8px; border-radius:5px; transform:rotate(-3deg); border:1.5px solid; white-space:nowrap}
+  .chop--am{color:var(--price); background:var(--price-bg); border-color:var(--price-bd)}
+  .chop--pm{color:var(--flag); background:var(--flag-bg); border-color:var(--flag-bd)}
+  .role__code{font-family:var(--font-label); font-size:26px; color:var(--gold); line-height:1}
+  .role__name{font-family:var(--font-disp); font-weight:700; font-size:17.5px; margin:2px 0 7px; padding-right:52px}
+  .role__time{font-family:var(--font-mono); font-size:12.5px; color:#fff; background:var(--ink); padding:2px 9px; border-radius:20px; display:inline-block; margin-bottom:9px}
+  .role__desc{font-size:13px; color:var(--ink-soft)}
+
+  /* duty card */
+  .duty{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow); margin-bottom:16px}
+  .duty__head{display:flex; align-items:center; gap:11px; flex-wrap:wrap; margin-bottom:12px; padding-bottom:10px; border-bottom:1px dashed var(--line)}
+  .duty__code{flex:none; width:42px; height:42px; border-radius:9px; background:var(--red); color:var(--paper);
+    font-family:var(--font-label); font-size:19px; display:grid; place-items:center; box-shadow:0 4px 12px -6px var(--red-deep)}
+  .duty__code.am{background:var(--gold)}
+  .duty__name{font-family:var(--font-disp); font-weight:900; font-size:19px}
+  .duty__time{font-family:var(--font-mono); font-size:12px; color:#fff; background:var(--ink); padding:2px 9px; border-radius:20px; margin-left:auto}
+  .duty h5{font-family:var(--font-disp); font-size:14px; color:var(--red-deep); margin:13px 0 6px; letter-spacing:.5px}
+  .duty h5:first-of-type{margin-top:0}
+  .ck{list-style:none; display:grid; gap:5px}
+  .ck li{position:relative; padding-left:24px; font-size:13.5px}
+  .ck li::before{content:""; position:absolute; left:0; top:3px; width:14px; height:14px; border:1.5px solid var(--line); border-radius:4px; background:var(--paper)}
+  .bul{list-style:none; display:grid; gap:5px}
+  .bul li{position:relative; padding-left:17px; font-size:13.5px}
+  .bul li::before{content:"●"; position:absolute; left:0; top:1px; color:var(--gold); font-size:9px}
+  .duty b{color:var(--red-deep)}
+  .warn{margin-top:11px; font-size:12.5px; color:#8c2a22; background:var(--flag-bg); border:1px solid var(--flag-bd);
+    border-radius:7px; padding:9px 11px; line-height:1.6}
+  .warn b{color:var(--flag)}
+  .info{margin-top:11px; font-size:12.5px; color:#5b5333; background:var(--price-bg); border:1px solid var(--price-bd);
+    border-radius:7px; padding:9px 11px; line-height:1.6}
+  .info b{color:var(--price)}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media(max-width:820px){.two{grid-template-columns:1fr}}
+
+  .alert{background:linear-gradient(180deg,#f8e3da,#f2d5c9); border:1px solid var(--flag-bd); border-left:6px solid var(--flag);
+    border-radius:12px; padding:18px 22px; box-shadow:var(--shadow); position:relative; margin:22px 0}
+  .alert__tag{position:absolute; top:-12px; left:20px; font-family:var(--font-label); letter-spacing:2px; font-size:14px;
+    background:var(--flag); color:#fff; padding:3px 12px; border-radius:20px}
+  .alert h4{font-family:var(--font-disp); font-size:17px; margin:6px 0 8px; color:var(--red-deep)}
+  .alert p{font-size:13.5px}
+  .alert b{color:var(--red-deep)}
+
+  /* handover steps */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:18px}
+  .step{background:var(--ink); color:#f4ead0; border-radius:12px; padding:18px; position:relative; overflow:hidden}
+  .step::before{content:attr(data-n); position:absolute; right:2px; bottom:-30px; font-family:var(--font-brush); font-size:110px; color:#ffffff0f; line-height:1}
+  .step__k{font-family:var(--font-label); letter-spacing:3px; color:var(--gold-2); font-size:14px}
+  .step h4{font-family:var(--font-brush); font-size:34px; color:#fff; margin:2px 0 6px; font-weight:400; line-height:1}
+  .step__who{font-family:var(--font-mono); font-size:11px; color:var(--gold-2); margin-bottom:8px}
+  .step p{font-size:13px; color:#efe3c9; line-height:1.7}
+  .step__t{position:absolute; top:14px; right:14px; font-family:var(--font-mono); font-size:11px; color:#ccbb9b}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+  .five{display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:11px; counter-reset:f; margin:14px 0}
+  .five__i{counter-increment:f; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px 12px 44px;
+    position:relative; font-size:13.5px; box-shadow:var(--shadow)}
+  .five__i::before{content:counter(f); position:absolute; left:12px; top:11px; font-family:var(--font-label); font-size:20px;
+    color:var(--paper); background:var(--red); width:24px; height:24px; border-radius:50%; display:grid; place-items:center}
+  .five__i small{display:block; color:var(--ink-faint); font-size:11.5px; margin-top:2px}
+
+  .form{background:#fffdf5; border:2px dashed var(--line); border-radius:12px; padding:20px 22px; font-family:var(--font-mono);
+    font-size:12.5px; line-height:2.1; color:var(--ink); overflow-x:auto; white-space:pre; box-shadow:var(--shadow)}
+
+  /* timeline */
+  .tl{position:relative; margin:6px 0 0; padding-left:8px}
+  .tl::before{content:""; position:absolute; left:64px; top:6px; bottom:6px; width:2px; background:linear-gradient(180deg,var(--gold),var(--red))}
+  .tl__i{position:relative; display:flex; gap:18px; align-items:flex-start; padding:6px 0}
+  .tl__t{flex:none; width:56px; text-align:right; font-family:var(--font-mono); font-weight:700; font-size:13px; color:var(--red)}
+  .tl__d{position:absolute; left:59px; top:13px; width:12px; height:12px; border-radius:50%; background:var(--paper); border:2.5px solid var(--gold)}
+  .tl__i--key .tl__d{background:var(--red); border-color:var(--red-deep); box-shadow:0 0 0 4px #9e1b1b22}
+  .tl__c{padding-left:22px; font-size:13.5px}
+  .tl__c b{font-family:var(--font-disp); font-weight:700}
+  .tl__i--key .tl__c b{color:var(--red)}
+  .tl__c small{display:block; color:var(--ink-faint); font-size:11.5px}
+
+  /* summary plan */
+  .plan{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:13px}
+  .plan__i{background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--done); border-radius:10px;
+    padding:14px 16px; box-shadow:var(--shadow)}
+  .plan__t{font-family:var(--font-disp); font-weight:700; font-size:15px; margin-bottom:5px; display:flex; align-items:center; gap:7px}
+  .plan__t::before{content:"✓"; color:var(--done); font-family:var(--font-body); font-weight:700}
+  .plan__d{font-size:13px; color:var(--ink-soft)}
+  .plan__i--pend{border-top-color:var(--todo)}
+  .plan__i--pend .plan__t::before{content:"◇"; color:var(--todo)}
+
+  .foot{text-align:center; margin-top:60px; padding-top:24px; border-top:1px solid var(--line); color:var(--ink-faint); font-size:12.5px}
+  .foot b{font-family:var(--font-brush); color:var(--red); font-size:18px; font-weight:400}
+
+  @media print{ .bar,.nav{display:none} body{background:#fff} .step{background:#2b2017 !important; -webkit-print-color-adjust:exact} }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar__brand">
+    <span class="bar__mark">金都</span>
+    <span class="bar__tag">OPERATIONS SOP v0.2</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a class="bar__link" href="index.html">← 菜單草稿</a>
+    <div class="bar__meta">內部營運文件<br>更新 2026-07-31</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero__stamp">SOP</div>
+    <div class="hero__eyebrow">KAM DO · 內部營運規劃</div>
+    <div class="hero__brush">營運手冊</div>
+    <h1 class="hero__title">人手編制 · 班次 · 崗位職責 · 交接班 <em>v0.2</em></h1>
+    <p class="hero__sub">對應菜單草稿 v0.4：早餐 7:00–11:30 · 午餐 11:30–14:00 · 餅店全日</p>
+    <div class="facts">
+      <span>燒臘 <b>外購</b>，店內不設掛爐</span>
+      <span>常餐 A／B <b>$13.59</b></span>
+      <span>簡餐 <b>$8.99</b></span>
+      <span>焗飯 紅汁／白汁 <b>$15.99</b></span>
+      <span>燒臘雙拼飯 <b>$15.99</b></span>
+      <span>大碗麵 <b>$15.99</b></span>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <a href="#s1">① 編制與班表</a>
+    <a href="#s2">② 崗位職責</a>
+    <a href="#s3">③ 交接班</a>
+    <a href="#s4">④ 每日時間軸</a>
+    <a href="#s5">⑤ 方案總結</a>
+  </nav>
+
+  <div class="kpi">
+    <div class="kpi__i"><div class="kpi__n">7<small> 人</small></div><div class="kpi__l">全店編制（早 4 ＋ 午 3）</div></div>
+    <div class="kpi__i"><div class="kpi__n">46.8<small> 小時</small></div><div class="kpi__l">每日總工時</div></div>
+    <div class="kpi__i"><div class="kpi__n">06:00</div><div class="kpi__l">最早到店（廚房）</div></div>
+    <div class="kpi__i"><div class="kpi__n">11:00<small>–11:30</small></div><div class="kpi__l">交接班時段</div></div>
+  </div>
+
+  <!-- ① 編制與班表 -->
+  <h2 class="block" id="s1">① 編制與班表 <em>STAFFING &amp; SHIFTS</em></h2>
+  <div class="block-rule"></div>
+
+  <div class="roster">
+    <div class="role role--am"><div class="role__chop chop--am">早班</div>
+      <div class="role__code">K1</div><div class="role__name">煎蛋／早餐廚房</div>
+      <div class="role__time">06:00 – 14:30</div>
+      <div class="role__desc">常餐 A／B、簡餐、煎蛋炒蛋、粉麵；午市支援大碗麵及出餐。</div></div>
+
+    <div class="role role--am"><div class="role__chop chop--am">早班</div>
+      <div class="role__code">F1</div><div class="role__name">接單／收銀</div>
+      <div class="role__time">06:30 – 15:00</div>
+      <div class="role__desc">樓面主管。POS、接單、收銀、外賣單、更換餐牌、每日結算。</div></div>
+
+    <div class="role role--am"><div class="role__chop chop--am">早班</div>
+      <div class="role__code">F2</div><div class="role__name">出餐／樓面</div>
+      <div class="role__time">06:30 – 14:30</div>
+      <div class="role__desc">出餐、收枱、洗碗、清潔、補充物資、收市全場清理。</div></div>
+
+    <div class="role role--am"><div class="role__chop chop--am">早班</div>
+      <div class="role__code">D1</div><div class="role__name">水吧</div>
+      <div class="role__time">06:40 – 14:30</div>
+      <div class="role__desc">全日飲品、茶膽管理、領取餅店麵包；高峰時段協助出餐。</div></div>
+
+    <div class="role role--pm"><div class="role__chop chop--pm">午班</div>
+      <div class="role__code">K2</div><div class="role__name">飯房（蒸飯＋焗飯）</div>
+      <div class="role__time">09:30 – 14:30</div>
+      <div class="role__desc">蒸飯、焗爐、紅汁／白汁焗飯出品；兼顧大碗麵。</div></div>
+
+    <div class="role role--pm"><div class="role__chop chop--pm">午班</div>
+      <div class="role__code">B1</div><div class="role__name">燒臘收貨／掛味</div>
+      <div class="role__time">10:00 – 14:30</div>
+      <div class="role__desc">收貨驗貨、量溫記錄、掛起保溫、補貨、調製燒味汁。</div></div>
+
+    <div class="role role--pm"><div class="role__chop chop--pm">午班</div>
+      <div class="role__code">B2</div><div class="role__name">斬料／砌碟</div>
+      <div class="role__time">10:00 – 14:30</div>
+      <div class="role__desc">斬燒味、砌雙拼飯、落飯、控制份量標準。</div></div>
+  </div>
+
+  <h3 class="subcat">班表 <span>SHIFT TABLE</span></h3>
+  <div class="tbl-scroll">
+  <table class="tbl">
+    <thead><tr><th>崗位</th><th>到店</th><th>下班</th><th>時數</th><th>到店時間的理由</th></tr></thead>
+    <tbody>
+      <tr><td><span class="k">K1</span> 煎蛋／廚房</td><td class="t">06:00</td><td class="t">14:30</td><td class="num">8.5</td><td>開爐、落飯、備料、落茶膽，07:00 準時出餐</td></tr>
+      <tr><td><span class="k">F1</span> 接單／收銀</td><td class="t">06:30</td><td class="t">15:00</td><td class="num">8.5</td><td>開 POS、點備用金、擺枱；收市最後離開</td></tr>
+      <tr><td><span class="k">F2</span> 出餐／樓面</td><td class="t">06:30</td><td class="t">14:30</td><td class="num">8.0</td><td>開店清潔、洗手間、補充物資</td></tr>
+      <tr><td><span class="k">D1</span> 水吧</td><td class="t">06:40</td><td class="t">14:30</td><td class="num">7.8</td><td><b>茶膽須焗 20–25 分鐘</b>，07:05 才有奶茶供應</td></tr>
+      <tr><td><span class="k">K2</span> 飯房</td><td class="t">09:30</td><td class="t">14:30</td><td class="num">5.0</td><td>洗米蒸飯、焗爐預熱 200°C、兩款汁分別備妥</td></tr>
+      <tr><td><span class="k">B1</span> 燒臘收貨</td><td class="t">10:00</td><td class="t">14:30</td><td class="num">4.5</td><td>接收外購燒臘、驗貨量溫、掛起保溫</td></tr>
+      <tr><td><span class="k">B2</span> 斬料</td><td class="t">10:00</td><td class="t">14:30</td><td class="num">4.5</td><td>磨刀、消毒砧板、調汁、擺砌碟位</td></tr>
+      <tr><td colspan="3" style="text-align:right;font-weight:700">每日總工時</td><td class="num" style="color:var(--red);font-weight:700">46.8</td><td>未計加班及深度清潔</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="alert">
+    <div class="alert__tag">KEY POINT</div>
+    <h4>午班 3 人是「增援」，不是「換班」</h4>
+    <p>午班 K2／B1／B2 全部在廚房。早班 4 人須留守至 <b>14:30</b>，否則午市無人接單收銀、無人沖飲品（每張套餐均附送飲品）、無人出餐收枱。午市高峰 12:00–13:30 全店 <b>7 人同時在場</b>。</p>
+  </div>
+
+  <!-- ② 崗位職責 -->
+  <h2 class="block" id="s2">② 崗位職責 <em>DUTIES</em></h2>
+  <div class="block-rule"></div>
+
+  <div class="duty">
+    <div class="duty__head"><div class="duty__code am">K1</div><div class="duty__name">煎蛋／早餐廚房</div><span class="duty__time">06:00 – 14:30</span></div>
+    <h5>開店 06:00–07:00</h5>
+    <ul class="ck">
+      <li>開抽氣、開爐、扒爐預熱 175°C、煮麵爐落水</li>
+      <li>電飯煲落飯；備料：火腿、餐肉、腸仔、沙爹牛肉汁</li>
+      <li>通粉／公仔麵預先汆水；打蛋液</li>
+      <li>06:50 煎一隻蛋試火候</li>
+    </ul>
+    <h5>營業</h5>
+    <ul class="bul">
+      <li><b>常餐 A</b> 火腿通粉＋餐肉腸仔＋炒蛋或煎蛋＋是日餐包＋飲品　<b>$13.59</b></li>
+      <li><b>常餐 B</b> 沙爹牛肉公仔麵＋炒蛋或煎蛋＋是日餐包＋飲品　<b>$13.59</b></li>
+      <li><b>簡餐</b> 火腿雞蛋三明治（方包）／沙爹牛肉菠蘿包 ＋飲品　<b>$8.99</b></li>
+      <li>是日餐包為迷你菠蘿包或迷你雞尾包，向 D1 領取</li>
+      <li>11:15 提醒 F1 發出早餐最後點餐；11:30 停接早餐單</li>
+      <li>午市轉為支援：大碗麵汆麵落料、補位出餐</li>
+    </ul>
+    <div class="info"><b>硬性規定：</b>所有蛋類產品必須使用<b>有機走地雞蛋</b>及<b>初榨橄欖油</b>，此為菜單 H 健康標識的前提。</div>
+    <h5>下班前</h5>
+    <ul class="ck">
+      <li>剩餘食材貼日期入雪櫃（先進先出）</li>
+      <li>清爐、清隔油網、清潔地墊</li>
+    </ul>
+  </div>
+
+  <div class="duty">
+    <div class="duty__head"><div class="duty__code am">F1</div><div class="duty__name">接單／收銀（樓面主管）</div><span class="duty__time">06:30 – 15:00</span></div>
+    <h5>開店 06:30–07:00</h5>
+    <ul class="ck">
+      <li>開燈、招牌、冷氣、音樂、大門</li>
+      <li>開 POS，<b>點算備用零錢並簽名記錄</b></li>
+      <li>開外賣單機、查看網上訂單</li>
+      <li>擺枱：餐具、紙巾、醬料、餐牌；查看是日餐包款式與缺料</li>
+    </ul>
+    <h5>營業</h5>
+    <ul class="bul">
+      <li>落單用代號：<b>A</b>／<b>B</b>／簡餐 <b>M-三</b>、<b>M-沙</b>／焗飯 <b>紅汁</b>、<b>白汁</b>／燒臘 <b>雙拼</b>／大碗麵 <b>麵</b></li>
+      <li>飲品冷熱同價，只需註明 熱奶／凍奶／熱啡／鴛鴦／凍檸茶／凍檸水</li>
+      <li>大單及特殊要求須向廚房口頭覆述一次</li>
+      <li>11:25 發出早餐最後點餐；11:30 換午市餐牌；14:00 午市最後點餐</li>
+    </ul>
+    <h5>收銀紀律</h5>
+    <ul class="bul">
+      <li>13:00 中途點算現金一次，超過設定金額存入夾萬</li>
+      <li>收市列印 Z-report，<b>雙人核對簽名</b></li>
+    </ul>
+  </div>
+
+  <div class="two">
+    <div class="duty">
+      <div class="duty__head"><div class="duty__code am">D1</div><div class="duty__name">水吧</div><span class="duty__time">06:40 – 14:30</span></div>
+      <h5>開店 06:40–07:00</h5>
+      <ul class="ck">
+        <li>落茶膽（焗 20–25 分鐘）、開咖啡機沖第一壺</li>
+        <li>開製冰機、冰塊入桶、切檸檬</li>
+        <li>備糖水、煉奶、淡奶</li>
+        <li>領取當日餐包並點數</li>
+      </ul>
+      <h5>出品標準</h5>
+      <ul class="bul">
+        <li>茶膽<b>每 2 小時更換</b>，掛時間牌，過時即棄</li>
+        <li>熱飲用熱杯、凍飲用凍杯，落冰份量統一</li>
+        <li>套餐飲品<b>冷熱同價</b>，不得收取凍飲附加費</li>
+        <li>11:00 補切檸檬；高峰時段協助出餐</li>
+      </ul>
+    </div>
+
+    <div class="duty">
+      <div class="duty__head"><div class="duty__code am">F2</div><div class="duty__name">出餐／樓面</div><span class="duty__time">06:30 – 14:30</span></div>
+      <h5>開店 06:30–07:00</h5>
+      <ul class="ck">
+        <li>掃地拖地、抹枱抹椅、清潔玻璃門</li>
+        <li>洗手間補充與清潔</li>
+        <li>補充紙巾、醬料、飲管、外賣盒</li>
+        <li>開洗碗機</li>
+      </ul>
+      <h5>營業</h5>
+      <ul class="bul">
+        <li>出餐<b>報單號＋枱號</b>，核對單據（尤其燒臘雙拼的兩款）</li>
+        <li>收枱須 <b>30 秒內</b>完成清抹，午市翻枱靠此</li>
+        <li>洗碗、倒垃圾、補貨</li>
+      </ul>
+      <h5>收市 14:00–15:00</h5>
+      <ul class="ck">
+        <li>全場清潔、椅子上枱、拖地</li>
+        <li>垃圾及廚餘搬出後巷、洗碗機保養</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="duty">
+    <div class="duty__head"><div class="duty__code">K2</div><div class="duty__name">飯房（蒸飯＋焗飯）</div><span class="duty__time">09:30 – 14:30</span></div>
+    <h5>準備 09:30–11:30</h5>
+    <ul class="ck">
+      <li>洗米、蒸飯，分兩批（11:00 · 12:30）確保新鮮</li>
+      <li>焗爐預熱 <b>200°C</b></li>
+      <li><b>紅汁</b>（焗豬扒飯）：豬扒醃好、蕃茄肉醬煮起、芝士分份</li>
+      <li><b>白汁</b>（焗海鮮意粉）：海鮮解凍瀝乾、白汁煮起、意粉預先煮至七成</li>
+      <li>點算大碗麵麵底存量（蕎麥麵／烏冬／瀨粉／魚麵）</li>
+    </ul>
+    <h5>營業 11:30–14:00</h5>
+    <ul class="bul">
+      <li>焗飯需時 <b>15–20 分鐘</b>，收單即入爐，同時通知 F1 向客人說明等候時間</li>
+      <li>蒸飯保溫 ≥60°C，超過 3 小時未售出即棄</li>
+      <li>兼顧大碗麵出品：麵底汆水、a set／b set 落料</li>
+    </ul>
+    <div class="warn"><b>海鮮專項：</b>白汁焗海鮮意粉的海鮮須<b>當日解凍、當日用完</b>，不可翻凍再用；解凍後存放於 ≤4°C，處理海鮮的砧板刀具與其他食材分開。</div>
+  </div>
+
+  <div class="duty">
+    <div class="duty__head"><div class="duty__code">B1</div><div class="duty__name">燒臘收貨／掛味<span style="font-family:var(--font-body);font-size:12px;color:var(--ink-faint);font-weight:400">　（外購，店內不設掛爐）</span></div><span class="duty__time">10:00 – 14:30</span></div>
+    <h5>收貨 10:00–10:30</h5>
+    <ul class="ck">
+      <li>核對送貨單：款式、數量、價格</li>
+      <li><b>逐項量溫並記錄</b>：熱貨 ≥60°C／凍貨 ≤4°C，不合格即場拒收並通知店長</li>
+      <li>檢查外觀與氣味，發現異常整批不上枱</li>
+      <li>掛起或入保溫櫃；保留送貨單存檔</li>
+    </ul>
+    <h5>準備 10:30–11:30</h5>
+    <ul class="ck">
+      <li>調製燒味汁、蔥油、薑蓉、辣椒醬，交 B2</li>
+      <li>按預估銷量分配上枱份量，其餘留保溫櫃</li>
+    </ul>
+    <h5>營業與收市</h5>
+    <ul class="bul">
+      <li>監察存量，適時由保溫櫃補貨予 B2</li>
+      <li>每次補貨記錄時間；<b>當日貨當日售完，不留隔夜</b></li>
+      <li>收市盤點餘量，通知店長調整翌日訂貨量</li>
+    </ul>
+    <div class="warn"><b>食品安全：</b>熱存 ≥60°C，或 2 小時內降至 ≤4°C 冷存；室溫陳列不超過 <b>4 小時</b>。收貨溫度與補貨時間須記入《燒味收貨記錄表》。一切以 <b>Vancouver Coastal Health</b> 規定為準，開業前與衛生督察確認一次。</div>
+  </div>
+
+  <div class="duty">
+    <div class="duty__head"><div class="duty__code">B2</div><div class="duty__name">斬料／砌碟</div><span class="duty__time">10:00 – 14:30</span></div>
+    <h5>準備 10:00–11:30</h5>
+    <ul class="ck">
+      <li>磨刀、消毒砧板（燒味砧板<b>專用</b>，不與生肉混用）</li>
+      <li>排放飯桶、飯勺、碟、外賣盒</li>
+      <li>11:00 接收 B1 分配的貨品，試斬試味</li>
+    </ul>
+    <h5>營業 11:30–14:00</h5>
+    <ul class="bul">
+      <li><b>雙拼飯 $15.99</b>：客人任選 2 款（豉油雞／叉燒／白切雞／鹵水鵝或鴨）</li>
+      <li>每款設<b>固定件數／重量</b>，落飯用同一飯勺，不可憑感覺</li>
+      <li>邊斬邊補，砧板每 2 小時清潔一次</li>
+    </ul>
+    <h5>下班前</h5>
+    <ul class="ck">
+      <li>餘料真空／保鮮入雪櫃貼日期</li>
+      <li>刀具砧板消毒、砌碟位清潔</li>
+    </ul>
+  </div>
+
+  <!-- ③ 交接班 -->
+  <h2 class="block" id="s3">③ 交接班 <em>HANDOVER</em></h2>
+  <div class="block-rule"></div>
+  <p class="lead">早班 → 午班交接：<b>11:00–11:30</b>。三個步驟：清 · 報 · 簽。</p>
+
+  <div class="steps">
+    <div class="step" data-n="清"><div class="step__t">11:00–11:20</div>
+      <div class="step__k">STEP 1</div><h4>清</h4>
+      <div class="step__who">負責：K1</div>
+      <p>清潔早餐爐頭、早餐備料貼日期入雪櫃、抹淨枱面交予 K2／B2。</p></div>
+    <div class="step" data-n="報"><div class="step__t">11:20–11:25</div>
+      <div class="step__k">STEP 2</div><h4>報</h4>
+      <div class="step__who">K1 → K2／B1／B2　F1 → 全組</div>
+      <p>60 秒口頭報告，必須交代右列 5 項內容。</p></div>
+    <div class="step" data-n="簽"><div class="step__t">11:25–11:30</div>
+      <div class="step__k">STEP 3</div><h4>簽</h4>
+      <div class="step__who">負責：交接雙方</div>
+      <p>填寫《交接班記錄表》，交班人與接班人雙方簽名。</p></div>
+  </div>
+
+  <div class="five">
+    <div class="five__i">未出餐的訂單<small>單號、枱號、已等候時間</small></div>
+    <div class="five__i">特殊要求<small>走蛋、少甜、食物敏感、外賣取餐時間</small></div>
+    <div class="five__i">食材短缺<small>何種食材已用完、餘量多少</small></div>
+    <div class="five__i">設備狀況<small>爐具、焗爐、咖啡機、洗碗機</small></div>
+    <div class="five__i">預訂／大額訂單<small>當日有否預訂或大單</small></div>
+  </div>
+
+  <div class="alert">
+    <div class="alert__tag">RULE</div>
+    <h4>11:30 前落的單一律當作早餐單</h4>
+    <p>交接的半小時早午重疊，最容易出錯。規則：<b>11:30 前落的單由 K1 負責到底</b>，不可轉交午班；11:30 後的單才由午班接手。</p>
+  </div>
+
+  <h3 class="subcat">交接班記錄表 <span>每日一張，張貼於廚房</span></h3>
+  <div class="form">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+金都茶餐廳 · 交接班記錄表      日期：__________
+
+班次：□ 早→午    □ 午→收市
+交班人：________  接班人：________  時間：______
+
+1) 未完成訂單號 ______________________________
+2) 特殊要求     ______________________________
+3) 短缺食材     ______________________________
+4) 設備狀況     □ 正常   □ 異常：______________
+5) 預訂／大單   ______________________________
+6) 燒臘收貨     到貨時間 ______ 量溫 ______°C
+7) 現金（F1 填）備用金 $______ 中途點算 $______
+
+交班人簽名 __________  接班人簽名 __________
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
+
+  <h3 class="subcat">收市 14:00–15:00 <span>CLOSING</span></h3>
+  <div class="tbl-scroll">
+  <table class="tbl">
+    <thead><tr><th style="width:120px">時間</th><th>工作內容</th><th style="width:100px">負責</th></tr></thead>
+    <tbody>
+      <tr><td class="t">14:00</td><td><b>午市最後點餐</b>，停接堂食單</td><td class="k">F1</td></tr>
+      <tr><td class="t">14:00–14:30</td><td>完成餘下訂單、廚房開始清潔、燒臘盤點餘量</td><td class="k">全組</td></tr>
+      <tr><td class="t">14:30</td><td>各崗位完成下班前清潔與食材入櫃</td><td class="k">各崗位</td></tr>
+      <tr><td class="t">14:30–15:00</td><td>F1 結算、列印 Z-report 雙人核對；通知供應商翌日訂貨量</td><td class="k">F1</td></tr>
+      <tr><td class="t">15:00</td><td>五項必查：①明火抽氣全熄 ②煤氣總掣關 ③雪櫃運作正常門關妥 ④現金入夾萬、Z-report 已簽 ⑤前後門鎖好、警鐘啟動</td><td class="k">F1</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- ④ 時間軸 -->
+  <h2 class="block" id="s4">④ 每日時間軸 <em>DAILY TIMELINE</em></h2>
+  <div class="block-rule"></div>
+  <div class="tl">
+    <div class="tl__i"><div class="tl__t">06:00</div><span class="tl__d"></span><div class="tl__c"><b>K1</b> 開爐、落飯、備料、落茶膽</div></div>
+    <div class="tl__i"><div class="tl__t">06:30</div><span class="tl__d"></span><div class="tl__c"><b>F1</b> 開 POS／擺枱　<b>F2</b> 清潔／擺餐具</div></div>
+    <div class="tl__i"><div class="tl__t">06:40</div><span class="tl__d"></span><div class="tl__c"><b>D1</b> 落茶膽、開咖啡機、切檸檬</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">07:00</div><span class="tl__d"></span><div class="tl__c"><b>🔔 開市（早餐＋簡餐）</b><small>樓面 4 人</small></div></div>
+    <div class="tl__i"><div class="tl__t">09:30</div><span class="tl__d"></span><div class="tl__c"><b>K2 到店</b> 洗米蒸飯、焗爐預熱、紅汁白汁分別備妥</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">10:00</div><span class="tl__d"></span><div class="tl__c"><b>B1／B2 到店 · 燒臘到貨</b><small>驗貨量溫、掛起保溫、磨刀調汁</small></div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">11:00</div><span class="tl__d"></span><div class="tl__c"><b>交接班開始「清」</b><small>B2 接貨試斬試味</small></div></div>
+    <div class="tl__i"><div class="tl__t">11:25</div><span class="tl__d"></span><div class="tl__c"><b>🔔 早餐最後點餐</b></div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">11:30</div><span class="tl__d"></span><div class="tl__c"><b>🔔 午市開始</b><small>全店 7 人同時在場</small></div></div>
+    <div class="tl__i"><div class="tl__t">12:00</div><span class="tl__d"></span><div class="tl__c"><b>高峰時段</b><small>12:00–13:30</small></div></div>
+    <div class="tl__i"><div class="tl__t">13:00</div><span class="tl__d"></span><div class="tl__c"><b>F1</b> 中途點算現金</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">14:00</div><span class="tl__d"></span><div class="tl__c"><b>🔔 午市最後點餐</b></div></div>
+    <div class="tl__i"><div class="tl__t">14:30</div><span class="tl__d"></span><div class="tl__c"><b>K1／F2／D1／K2／B1／B2</b> 下班</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">15:00</div><span class="tl__d"></span><div class="tl__c"><b>🔔 收市</b><small>F1 最後離開，執行五項必查</small></div></div>
+  </div>
+
+  <!-- ⑤ 方案總結 -->
+  <h2 class="block" id="s5">⑤ 方案總結 <em>PLAN SUMMARY</em></h2>
+  <div class="block-rule"></div>
+  <div class="plan">
+    <div class="plan__i"><div class="plan__t">燒臘：外購模式</div><div class="plan__d">店內不設掛爐。B1 負責 10:00 收貨、驗貨量溫、掛起保溫；B2 負責斬料砌碟。當日貨當日售完。</div></div>
+    <div class="plan__i"><div class="plan__t">午班為增援</div><div class="plan__d">早班 4 人留守至 14:30，午班 3 人於 09:30–10:00 陸續加入，高峰 7 人同場。</div></div>
+    <div class="plan__i"><div class="plan__t">焗飯兩款汁</div><div class="plan__d">紅汁焗豬扒飯／白汁焗海鮮意粉，$15.99。由 K2 一人負責，兩款汁分開預備，海鮮當日用完。</div></div>
+    <div class="plan__i"><div class="plan__t">簡餐由 K1 兼顧</div><div class="plan__d">三明治／沙爹牛肉菠蘿包 $8.99，無須另設崗位，與常餐同一爐頭出品。</div></div>
+    <div class="plan__i"><div class="plan__t">大碗麵由 K2 兼任</div><div class="plan__d">配料前一日炆好，午市只需汆麵落料。日銷量若持續超過 40 碗，再增設半日班專責煮麵。</div></div>
+    <div class="plan__i"><div class="plan__t">交接班：清·報·簽</div><div class="plan__d">11:00–11:30 執行，附記錄表雙方簽名。11:30 前落的單由早班負責到底。</div></div>
+    <div class="plan__i plan__i--pend"><div class="plan__t">待補：燒臘送貨細節</div><div class="plan__d">送貨時間與頻率、是否已斬件，將決定 B1／B2 的到店時間與工作量分配。</div></div>
+    <div class="plan__i plan__i--pend"><div class="plan__t">待補：餅店供應方式</div><div class="plan__d">自家烘焙須增設凌晨班次；由 Kam Do Bakery 配送則維持現有編制。</div></div>
+  </div>
+
+  <div class="foot">
+    <b>金都茶餐廳</b><br>
+    營運 SOP v0.2 · 內部文件 · 2026-07-31<br>
+    配合《菜單草稿 v0.4》使用
+  </div>
+
+</div>
+</body>
+</html>

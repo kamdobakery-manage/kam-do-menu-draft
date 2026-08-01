@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>金都 · 菜單草稿 v0.3 — 規劃審閱文件</title>
+<title>金都 · 菜單草稿 v0.4 — 規劃審閱文件</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -218,6 +218,8 @@
   .grid .item:nth-child(2){animation-delay:.05s} .grid .item:nth-child(3){animation-delay:.1s}
   .grid .item:nth-child(4){animation-delay:.15s} .grid .item:nth-child(5){animation-delay:.2s}
   @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  .bar__link{font-family:var(--font-mono); font-size:11px; color:var(--red); text-decoration:none; border:1px solid var(--line); border-radius:20px; padding:3px 11px; white-space:nowrap}
+  .bar__link:hover{background:var(--red); color:var(--paper); border-color:var(--red)}
 </style>
 </head>
 <body>
@@ -225,9 +227,12 @@
 <div class="bar">
   <div class="bar__brand">
     <span class="bar__mark">金都</span>
-    <span class="bar__tag">MENU DRAFT v0.3</span>
+    <span class="bar__tag">MENU DRAFT v0.4</span>
   </div>
-  <div class="bar__meta">內部規劃文件 · 非正式網站<br>更新 2026-06-08</div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a class="bar__link" href="sop.html">營運 SOP →</a>
+    <div class="bar__meta">內部規劃文件 · 非正式網站<br>更新 2026-07-31</div>
+  </div>
 </div>
 
 <div class="wrap">
@@ -237,11 +242,11 @@
     <div class="hero__stamp">DRAFT</div>
     <div class="hero__eyebrow">KAM DO · 內部規劃審閱</div>
     <div class="hero__brush">菜單草稿</div>
-    <h1 class="hero__title">規劃總覽 <em>v0.3</em></h1>
-    <p class="hero__sub">一眼睇清：菜單內容 · 我的建議 · 仲要傾嘅問題</p>
+    <h1 class="hero__title">規劃總覽 <em>v0.4</em></h1>
+    <p class="hero__sub">一覽全局：菜單內容 · 建議 · 待商討問題</p>
     <div class="notice">
       <span style="font-size:18px">⚠️</span>
-      <div><b>呢份係規劃文件，唔係正式網站。</b></div>
+      <div><b>本文件為規劃文件，並非正式網站。</b></div>
     </div>
   </header>
 
@@ -260,7 +265,7 @@
     <div class="cats__grid">
       <div class="cat"><span class="cat__no">1</span><div><b>茶餐廳</b><small>CHA CHAAN TENG</small><i>早餐 · 飲品</i></div></div>
       <div class="cat"><span class="cat__no">2</span><div><b>Bakery 餅店</b><small>BAKERY</small><i>菠蘿包(主打) · 麵包 · 蛋塔 · 酥餅</i></div></div>
-      <div class="cat"><span class="cat__no">3</span><div><b>焗飯</b><small>BAKED RICE</small><i>豬扒飯／肉醬肉丸意粉</i></div></div>
+      <div class="cat"><span class="cat__no">3</span><div><b>焗飯</b><small>BAKED RICE</small><i>紅汁焗豬扒飯／白汁焗海鮮意粉</i></div></div>
       <div class="cat"><span class="cat__no">4</span><div><b>BBQ 燒臘</b><small>ROAST MEATS</small><i>雙拼飯</i></div></div>
       <div class="cat"><span class="cat__no">5</span><div><b>大碗麵</b><small>BIG BOWL NOODLES</small><i>a set ＋ b set</i></div></div>
     </div>
@@ -316,18 +321,18 @@
         <div class="item__code">A</div>
         <div class="item__name">A 餐 <span class="h-badge"><i>H</i><b>健康</b></span></div>
         <div class="item__desc">火腿通粉 ＋ 餐肉腸仔 ＋ 炒蛋或煎蛋 ＋ 是日餐包 ＋ 飲品</div>
-        <div class="item__price">$12.99</div>
+        <div class="item__price">$13.59</div>
       </article>
       <article class="item item--done">
         <div class="item__chop chop--done">✓ 已定</div>
         <div class="item__code">B</div>
         <div class="item__name">B 餐 <span class="h-badge"><i>H</i><b>健康</b></span></div>
         <div class="item__desc">沙爹牛肉公仔麵 ＋ 炒蛋或煎蛋 ＋ 是日餐包 ＋ 飲品</div>
-        <div class="item__price">$12.99</div>
+        <div class="item__price">$13.59</div>
       </article>
     </div>
 
-    <h3 class="subcat">西式 M 早餐 <span>GRAB &amp; GO</span></h3>
+    <h3 class="subcat">簡餐 <span>LIGHT MEAL</span></h3>
     <div class="grid">
       <article class="item item--done">
         <div class="item__chop chop--done">✓ 已定</div>
@@ -363,7 +368,7 @@
         <div class="item__chop chop--done">✓ 已定價</div>
         <div class="item__code">A</div>
         <div class="item__name">焗飯 <span style="font-size:12px;color:var(--ink-faint)">Grab &amp; Go</span></div>
-        <div class="item__opts"><b>二選一：</b><span class="pill">a · 豬扒飯</span><span class="pill">b · 肉醬肉丸意粉</span></div>
+        <div class="item__opts"><b>二選一：</b><span class="pill">紅汁 · 焗豬扒飯</span><span class="pill">白汁 · 焗海鮮意粉</span></div>
         <div class="item__price">$15.99</div>
       </article>
     </div>
@@ -374,7 +379,7 @@
         <div class="item__chop chop--done">✓ 已定價</div>
         <div class="item__code">B</div>
         <div class="item__name">雙拼飯</div>
-        <div class="item__opts"><b>雙拼任揀 2：</b><span class="pill">豉油雞</span><span class="pill">叉燒</span><span class="pill">白切雞</span><span class="pill">鹵水鵝／鴨</span></div>
+        <div class="item__opts"><b>雙拼任選 2：</b><span class="pill">豉油雞</span><span class="pill">叉燒</span><span class="pill">白切雞</span><span class="pill">鹵水鵝／鴨</span></div>
         <div class="item__price">$15.99</div>
       </article>
     </div>
@@ -391,7 +396,7 @@
         </tr>
       </tbody>
     </table>
-    <div class="item__flag" style="max-width:760px;margin-top:12px"><b>⚠ 待傾：</b>a set／b set 各揀幾多款？加額外配料點收？</div>
+    <div class="item__flag" style="max-width:760px;margin-top:12px"><b>⚠ 待商討：</b>a set／b set 各選多少款？額外配料如何收費？</div>
   </section>
 
   <!-- 03 BAKERY -->
@@ -435,17 +440,17 @@
       <p>Kam Do — still the taste you remember.</p>
     </div>
     <div class="story__divider"></div>
-    <h4 class="story__sub">點樣同菜單首尾呼應</h4>
+    <h4 class="story__sub">如何與菜單首尾呼應</h4>
     <div class="story__arc">
       <span>茶餐廳<br><small style="color:#caa050">根</small></span><i>→</i>
       <span>Bakery<br><small style="color:#caa050">餅店那一章</small></span><i>→</i>
       <span>焗飯 · BBQ · 大碗麵<br><small style="color:#caa050">長大後的全餐</small></span>
     </div>
     <ul>
-      <li><b>菠蘿包＝全店主打／招牌</b> —— 故事與封面圍繞菠蘿包；佢亦係 西式M早餐同 Bakery 嘅主角，前後呼應。</li>
+      <li><b>菠蘿包＝全店主打／招牌</b> —— 故事與封面圍繞菠蘿包；它亦是簡餐與 Bakery 的主角，前後呼應。</li>
       <li><b>蛋塔貫穿 Bakery</b> —— 故事可名正言順提「招牌菠蘿包同蛋塔，愈做愈旺」。</li>
       <li><b>5 大類別照故事弧線排</b> —— 由「根」行到「長大」，呼應 1986 起家 → 做成餅店 → 回歸本心。</li>
-      <li><b>沙爹牛肉</b>係另一招牌口味，貫穿 早餐 B ＋ 西式M早餐菠蘿包，一併寫入故事。</li>
+      <li><b>沙爹牛肉</b>是另一招牌口味，貫穿 早餐 B ＋ 簡餐沙爹牛肉菠蘿包，一併寫入故事。</li>
       <li><b>收尾</b>：菜單行完，尾段用「<b>味道如昔</b>」或「<b>返璞歸真</b>」帶返開頭故事，頭尾抱住成份菜單。</li>
     </ul>
   </div>
@@ -456,9 +461,9 @@
   <table class="tbl">
     <thead><tr><th style="width:130px">項目</th><th style="width:74px">類型</th><th>內容</th></tr></thead>
     <tbody>
-      <tr><td class="k">大碗麵</td><td><span class="tag tag--l">問題</span></td><td>a set／b set 各揀幾多款？加額外配料點收？（$15.99）</td></tr>
+      <tr><td class="k">大碗麵</td><td><span class="tag tag--l">問題</span></td><td>a set／b set 各選多少款？額外配料如何收費？（$15.99）</td></tr>
       <tr><td class="k">餅店</td><td><span class="tag tag--n">待補</span></td><td>各式麵包款式同定價待提供。</td></tr>
-      <tr><td class="k">時段</td><td><span class="tag tag--l">問題</span></td><td>早餐至 11:30（last call）、午餐至 2:00pm；2:00pm 後有冇供應？</td></tr>
+      <tr><td class="k">時段</td><td><span class="tag tag--l">問題</span></td><td>早餐至 11:30（last call）、午餐至 2:00pm；2:00pm 後是否供應？</td></tr>
     </tbody>
   </table>
 
@@ -467,15 +472,15 @@
   <div class="block-rule"></div>
   <div class="check">
     <div class="check__i"><div><div class="check__t">網頁主導航：用「類別」定「時段」？</div><div class="check__d"><em>我建議：</em>5 大類別做主導航，時段（早／午）做標籤。</div></div></div>
-    <div class="check__i"><div><div class="check__t">大碗麵配料規則</div><div class="check__d">a set／b set 各揀幾多款？加額外配料點收費？</div></div></div>
+    <div class="check__i"><div><div class="check__t">大碗麵配料規則</div><div class="check__d">a set／b set 各選多少款？額外配料如何收費？</div></div></div>
     <div class="check__i"><div><div class="check__t">Bakery 麵包清單</div><div class="check__d">各式麵包款式同價（菠蘿包＝主打；蛋塔、中式酥餅已定有售）。</div></div></div>
-    <div class="check__i"><div><div class="check__t">營業時段</div><div class="check__d">2:00pm 後有冇供應？（v0.3 暫得早餐／午餐／飲品／餅店）</div></div></div>
-    <div class="check__i"><div><div class="check__t">H 健康 logo</div><div class="check__d">有蛋產品標 H（初榨橄欖油＋有機走地雞蛋）；logo 要唔要再設計？</div></div></div>
+    <div class="check__i"><div><div class="check__t">營業時段</div><div class="check__d">2:00pm 後是否供應？（v0.4 暫設早餐／簡餐／午餐／飲品／餅店）</div></div></div>
+    <div class="check__i"><div><div class="check__t">H 健康 logo</div><div class="check__d">有蛋產品標示 H（初榨橄欖油＋有機走地雞蛋）；logo 是否需要重新設計？</div></div></div>
   </div>
 
   <div class="foot">
     <b>金都</b><br>
-    內部規劃文件 · 菜單草稿 v0.3 · 內容僅供內部討論
+    內部規劃文件 · 菜單草稿 v0.4 · 內容僅供內部討論
   </div>
 
 </div>
