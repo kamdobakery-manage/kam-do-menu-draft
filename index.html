@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>金都 · 菜單草稿 v0.5 — 規劃審閱文件</title>
+<title>金都 · 菜單 v1.0 — 規劃審閱文件</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -218,8 +218,6 @@
   .grid .item:nth-child(2){animation-delay:.05s} .grid .item:nth-child(3){animation-delay:.1s}
   .grid .item:nth-child(4){animation-delay:.15s} .grid .item:nth-child(5){animation-delay:.2s}
   @media(prefers-reduced-motion:reduce){*{animation:none!important}}
-  .bar__link{font-family:var(--font-mono); font-size:11px; color:var(--red); text-decoration:none; border:1px solid var(--line); border-radius:20px; padding:3px 11px; white-space:nowrap}
-  .bar__link:hover{background:var(--red); color:var(--paper); border-color:var(--red)}
 </style>
 </head>
 <body>
@@ -227,12 +225,9 @@
 <div class="bar">
   <div class="bar__brand">
     <span class="bar__mark">金都</span>
-    <span class="bar__tag">MENU DRAFT v0.5</span>
+    <span class="bar__tag">MENU v1.0</span>
   </div>
-  <div style="display:flex;align-items:center;gap:12px">
-    <a class="bar__link" href="sop.html">營運 SOP →</a>
-    <div class="bar__meta">內部規劃文件 · 非正式網站<br>更新 2026-08-01</div>
-  </div>
+  <div class="bar__meta">內部規劃文件 · 非正式網站<br>更新 2026-07-31</div>
 </div>
 
 <div class="wrap">
@@ -242,7 +237,7 @@
     <div class="hero__stamp">DRAFT</div>
     <div class="hero__eyebrow">KAM DO · 內部規劃審閱</div>
     <div class="hero__brush">菜單草稿</div>
-    <h1 class="hero__title">規劃總覽 <em>v0.5</em></h1>
+    <h1 class="hero__title">規劃總覽 <em>v1.0</em></h1>
     <p class="hero__sub">一覽全局：菜單內容 · 建議 · 待商討問題</p>
     <div class="notice">
       <span style="font-size:18px">⚠️</span>
@@ -397,7 +392,18 @@
         </tr>
       </tbody>
     </table>
-    <div class="item__flag" style="max-width:760px;margin-top:12px"><b>⚠ 待商討：</b>a set／b set 各選多少款？額外配料如何收費？</div>
+    <div class="prop" style="max-width:880px;margin-top:18px">
+      <div class="prop__tag">建議方案</div>
+      <h4>$15.99 包含：麵底 1 款 ＋ a set 任選 1 款 ＋ b set 任選 2 款</h4>
+      <ul>
+        <li><b>a set 加配</b>（豬手／牛筋／牛腩）　<b>+$3.50</b> 每款，最多加 2 款</li>
+        <li><b>b set 加配</b>（魚腐／魚蛋／什丸）　<b>+$2.00</b> 每款，最多加 3 款</li>
+        <li><b>加麵底</b>（雙拼麵底或加底）　<b>+$2.00</b></li>
+        <li><b>全配套餐</b>　a set 3 款 ＋ b set 3 款　<b>$23.99</b>（較逐款加配平 $1.00）</li>
+        <li><b>走配料不設減價</b>；所有配料以固定份量出品</li>
+      </ul>
+      <p style="font-size:13px;color:var(--ink-soft);margin-top:10px;line-height:1.7"><b>定價理由：</b>a set 為炆煮肉類，工序長、成本高，$3.50 才守得住毛利；b set 為丸類成本低，$2.00 客人容易加。標準配置已有 3 件配料，碗面足夠飽滿；設加配上限是為了控制出品時間與碗的容量。</p>
+    </div>
   </section>
 
   <!-- 03 BAKERY -->
@@ -462,7 +468,7 @@
   <table class="tbl">
     <thead><tr><th style="width:130px">項目</th><th style="width:74px">類型</th><th>內容</th></tr></thead>
     <tbody>
-      <tr><td class="k">大碗麵</td><td><span class="tag tag--l">問題</span></td><td>a set／b set 各選多少款？額外配料如何收費？（$15.99）</td></tr>
+      <tr><td class="k">大碗麵</td><td><span class="tag tag--p">建議</span></td><td>$15.99 ＝ 麵底 1 ＋ a set 1 ＋ b set 2；加配 a set +$3.50、b set +$2.00、加麵底 +$2.00；全配套餐 $23.99。待確認</td></tr>
       <tr><td class="k">餅店</td><td><span class="tag tag--n">待補</span></td><td>各式麵包款式同定價待提供。</td></tr>
       <tr><td class="k">時段</td><td><span class="tag tag--p">已定</span></td><td>早餐至 11:30 · 午餐（焗飯）11:30–2:00pm · 燒臘／大碗麵／簡餐／飲品供應至 5:30pm（最後點餐）</td></tr>
     </tbody>
@@ -473,7 +479,7 @@
   <div class="block-rule"></div>
   <div class="check">
     <div class="check__i"><div><div class="check__t">網頁主導航：用「類別」定「時段」？</div><div class="check__d"><em>我建議：</em>5 大類別做主導航，時段（早／午）做標籤。</div></div></div>
-    <div class="check__i"><div><div class="check__t">大碗麵配料規則</div><div class="check__d">a set／b set 各選多少款？額外配料如何收費？</div></div></div>
+    <div class="check__i"><div><div class="check__t">大碗麵配料規則 <em>已提建議</em></div><div class="check__d">建議：$15.99 ＝ 麵底 1 ＋ a set 1 ＋ b set 2；加配 a set +$3.50／b set +$2.00／加麵底 +$2.00；全配套餐 $23.99。請確認或調整價位。</div></div></div>
     <div class="check__i"><div><div class="check__t">Bakery 麵包清單</div><div class="check__d">各式麵包款式同價（菠蘿包＝主打；蛋塔、中式酥餅已定有售）。</div></div></div>
     <div class="check__i"><div><div class="check__t">大碗麵下午供應量</div><div class="check__d">配料（豬手／牛筋／牛腩）需分兩鍋炆製，下午開第二鍋；預估下午銷量待定。</div></div></div>
     <div class="check__i"><div><div class="check__t">H 健康 logo</div><div class="check__d">有蛋產品標示 H（初榨橄欖油＋有機走地雞蛋）；logo 是否需要重新設計？</div></div></div>
@@ -481,7 +487,7 @@
 
   <div class="foot">
     <b>金都</b><br>
-    內部規劃文件 · 菜單草稿 v0.5 · 內容僅供內部討論
+    內部規劃文件 · 菜單 v1.0 · 內容僅供內部討論
   </div>
 
 </div>
