@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>金都 · 營運 SOP v0.2 — 人手 · 班次 · 職責 · 交接班</title>
+<title>金都 · 營運 SOP v0.3 — 人手 · 班次 · 職責 · 交接班</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -200,15 +200,14 @@
 </style>
 </head>
 <body>
-
 <div class="bar">
   <div class="bar__brand">
     <span class="bar__mark">金都</span>
-    <span class="bar__tag">OPERATIONS SOP v0.2</span>
+    <span class="bar__tag">OPERATIONS SOP v0.3</span>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
     <a class="bar__link" href="index.html">← 菜單草稿</a>
-    <div class="bar__meta">內部營運文件<br>更新 2026-07-31</div>
+    <div class="bar__meta">內部營運文件<br>更新 2026-08-01</div>
   </div>
 </div>
 
@@ -218,10 +217,11 @@
     <div class="hero__stamp">SOP</div>
     <div class="hero__eyebrow">KAM DO · 內部營運規劃</div>
     <div class="hero__brush">營運手冊</div>
-    <h1 class="hero__title">人手編制 · 班次 · 崗位職責 · 交接班 <em>v0.2</em></h1>
+    <h1 class="hero__title">人手編制 · 班次 · 崗位職責 · 交接班 <em>v0.3</em></h1>
     <p class="hero__sub">對應菜單草稿 v0.4：早餐 7:00–11:30 · 午餐 11:30–14:00 · 餅店全日</p>
     <div class="facts">
-      <span>燒臘 <b>外購</b>，店內不設掛爐</span>
+      <span>茶餐廳設於 <b>Kam Do Bakery</b> 內，餅類由同址餅房供應</span>
+      <span>燒臘 <b>早上到貨</b>，店內掛＋斬，設專職斬燒臘師傅</span>
       <span>常餐 A／B <b>$13.59</b></span>
       <span>簡餐 <b>$8.99</b></span>
       <span>焗飯 紅汁／白汁 <b>$15.99</b></span>
@@ -239,7 +239,7 @@
   </nav>
 
   <div class="kpi">
-    <div class="kpi__i"><div class="kpi__n">7<small> 人</small></div><div class="kpi__l">全店編制（早 4 ＋ 午 3）</div></div>
+    <div class="kpi__i"><div class="kpi__n">7<small> 人</small></div><div class="kpi__l">全店編制（A 組 4 ＋ B 組 3）</div></div>
     <div class="kpi__i"><div class="kpi__n">46.8<small> 小時</small></div><div class="kpi__l">每日總工時</div></div>
     <div class="kpi__i"><div class="kpi__n">06:00</div><div class="kpi__l">最早到店（廚房）</div></div>
     <div class="kpi__i"><div class="kpi__n">11:00<small>–11:30</small></div><div class="kpi__l">交接班時段</div></div>
@@ -248,42 +248,43 @@
   <!-- ① 編制與班表 -->
   <h2 class="block" id="s1">① 編制與班表 <em>STAFFING &amp; SHIFTS</em></h2>
   <div class="block-rule"></div>
+  <p class="lead"><b>A 組</b>＝早餐及樓面 4 人（全日留守）　<b>B 組</b>＝午市廚房 3 人（燒臘 2 ＋ 飯房 1）</p>
 
   <div class="roster">
-    <div class="role role--am"><div class="role__chop chop--am">早班</div>
-      <div class="role__code">K1</div><div class="role__name">煎蛋／早餐廚房</div>
-      <div class="role__time">06:00 – 14:30</div>
-      <div class="role__desc">常餐 A／B、簡餐、煎蛋炒蛋、粉麵；午市支援大碗麵及出餐。</div></div>
-
-    <div class="role role--am"><div class="role__chop chop--am">早班</div>
-      <div class="role__code">F1</div><div class="role__name">接單／收銀</div>
+    <div class="role role--am"><div class="role__chop chop--am">A 組</div>
+      <div class="role__code">A1</div><div class="role__name">接單／收銀</div>
       <div class="role__time">06:30 – 15:00</div>
       <div class="role__desc">樓面主管。POS、接單、收銀、外賣單、更換餐牌、每日結算。</div></div>
 
-    <div class="role role--am"><div class="role__chop chop--am">早班</div>
-      <div class="role__code">F2</div><div class="role__name">出餐／樓面</div>
+    <div class="role role--am"><div class="role__chop chop--am">A 組</div>
+      <div class="role__code">A2</div><div class="role__name">煎蛋／早餐廚房</div>
+      <div class="role__time">06:00 – 14:30</div>
+      <div class="role__desc">常餐 A／B、簡餐、煎蛋炒蛋、粉麵；並負責早上簽收燒臘到貨。</div></div>
+
+    <div class="role role--am"><div class="role__chop chop--am">A 組</div>
+      <div class="role__code">A3</div><div class="role__name">水吧</div>
+      <div class="role__time">06:40 – 14:30</div>
+      <div class="role__desc">全日飲品、茶膽管理；每朝向同址餅房領取餐包並點數。</div></div>
+
+    <div class="role role--am"><div class="role__chop chop--am">A 組</div>
+      <div class="role__code">A4</div><div class="role__name">出餐／樓面</div>
       <div class="role__time">06:30 – 14:30</div>
       <div class="role__desc">出餐、收枱、洗碗、清潔、補充物資、收市全場清理。</div></div>
 
-    <div class="role role--am"><div class="role__chop chop--am">早班</div>
-      <div class="role__code">D1</div><div class="role__name">水吧</div>
-      <div class="role__time">06:40 – 14:30</div>
-      <div class="role__desc">全日飲品、茶膽管理、領取餅店麵包；高峰時段協助出餐。</div></div>
+    <div class="role role--pm"><div class="role__chop chop--pm">B 組</div>
+      <div class="role__code">B1</div><div class="role__name">掛燒臘／收貨保溫</div>
+      <div class="role__time">10:00 – 14:30</div>
+      <div class="role__desc">點收當日燒臘、量溫記錄、上鈎掛起、保溫陳列、補貨、調製燒味汁。</div></div>
 
-    <div class="role role--pm"><div class="role__chop chop--pm">午班</div>
-      <div class="role__code">K2</div><div class="role__name">飯房（蒸飯＋焗飯）</div>
+    <div class="role role--pm"><div class="role__chop chop--pm">B 組</div>
+      <div class="role__code">B2</div><div class="role__name">斬燒臘師傅</div>
+      <div class="role__time">10:00 – 14:30</div>
+      <div class="role__desc">專職斬料。制定並執行每款件數／重量標準、砌碟落飯、刀具保養。</div></div>
+
+    <div class="role role--pm"><div class="role__chop chop--pm">B 組</div>
+      <div class="role__code">B3</div><div class="role__name">飯房（蒸飯＋焗飯）</div>
       <div class="role__time">09:30 – 14:30</div>
       <div class="role__desc">蒸飯、焗爐、紅汁／白汁焗飯出品；兼顧大碗麵。</div></div>
-
-    <div class="role role--pm"><div class="role__chop chop--pm">午班</div>
-      <div class="role__code">B1</div><div class="role__name">燒臘收貨／掛味</div>
-      <div class="role__time">10:00 – 14:30</div>
-      <div class="role__desc">收貨驗貨、量溫記錄、掛起保溫、補貨、調製燒味汁。</div></div>
-
-    <div class="role role--pm"><div class="role__chop chop--pm">午班</div>
-      <div class="role__code">B2</div><div class="role__name">斬料／砌碟</div>
-      <div class="role__time">10:00 – 14:30</div>
-      <div class="role__desc">斬燒味、砌雙拼飯、落飯、控制份量標準。</div></div>
   </div>
 
   <h3 class="subcat">班表 <span>SHIFT TABLE</span></h3>
@@ -291,13 +292,13 @@
   <table class="tbl">
     <thead><tr><th>崗位</th><th>到店</th><th>下班</th><th>時數</th><th>到店時間的理由</th></tr></thead>
     <tbody>
-      <tr><td><span class="k">K1</span> 煎蛋／廚房</td><td class="t">06:00</td><td class="t">14:30</td><td class="num">8.5</td><td>開爐、落飯、備料、落茶膽，07:00 準時出餐</td></tr>
-      <tr><td><span class="k">F1</span> 接單／收銀</td><td class="t">06:30</td><td class="t">15:00</td><td class="num">8.5</td><td>開 POS、點備用金、擺枱；收市最後離開</td></tr>
-      <tr><td><span class="k">F2</span> 出餐／樓面</td><td class="t">06:30</td><td class="t">14:30</td><td class="num">8.0</td><td>開店清潔、洗手間、補充物資</td></tr>
-      <tr><td><span class="k">D1</span> 水吧</td><td class="t">06:40</td><td class="t">14:30</td><td class="num">7.8</td><td><b>茶膽須焗 20–25 分鐘</b>，07:05 才有奶茶供應</td></tr>
-      <tr><td><span class="k">K2</span> 飯房</td><td class="t">09:30</td><td class="t">14:30</td><td class="num">5.0</td><td>洗米蒸飯、焗爐預熱 200°C、兩款汁分別備妥</td></tr>
-      <tr><td><span class="k">B1</span> 燒臘收貨</td><td class="t">10:00</td><td class="t">14:30</td><td class="num">4.5</td><td>接收外購燒臘、驗貨量溫、掛起保溫</td></tr>
-      <tr><td><span class="k">B2</span> 斬料</td><td class="t">10:00</td><td class="t">14:30</td><td class="num">4.5</td><td>磨刀、消毒砧板、調汁、擺砌碟位</td></tr>
+      <tr><td><span class="k">A1</span> 接單／收銀</td><td class="t">06:30</td><td class="t">15:00</td><td class="num">8.5</td><td>開 POS、點備用金、擺枱；收市最後離開</td></tr>
+      <tr><td><span class="k">A2</span> 煎蛋／廚房</td><td class="t">06:00</td><td class="t">14:30</td><td class="num">8.5</td><td>開爐、落飯、備料、落茶膽，07:00 準時出餐；並簽收燒臘到貨</td></tr>
+      <tr><td><span class="k">A3</span> 水吧</td><td class="t">06:40</td><td class="t">14:30</td><td class="num">7.8</td><td><b>茶膽須焗 20–25 分鐘</b>，07:05 才有奶茶供應</td></tr>
+      <tr><td><span class="k">A4</span> 出餐／樓面</td><td class="t">06:30</td><td class="t">14:30</td><td class="num">8.0</td><td>開店清潔、洗手間、補充物資</td></tr>
+      <tr><td><span class="k">B3</span> 飯房</td><td class="t">09:30</td><td class="t">14:30</td><td class="num">5.0</td><td>洗米蒸飯、焗爐預熱 200°C、兩款汁分別備妥</td></tr>
+      <tr><td><span class="k">B1</span> 掛燒臘／收貨</td><td class="t">10:00</td><td class="t">14:30</td><td class="num">4.5</td><td>點收、量溫、上鈎掛起、保溫陳列、調汁</td></tr>
+      <tr><td><span class="k">B2</span> 斬燒臘師傅</td><td class="t">10:00</td><td class="t">14:30</td><td class="num">4.5</td><td>磨刀、消毒砧板、擺砌碟位、試斬定份量</td></tr>
       <tr><td colspan="3" style="text-align:right;font-weight:700">每日總工時</td><td class="num" style="color:var(--red);font-weight:700">46.8</td><td>未計加班及深度清潔</td></tr>
     </tbody>
   </table>
@@ -305,8 +306,8 @@
 
   <div class="alert">
     <div class="alert__tag">KEY POINT</div>
-    <h4>午班 3 人是「增援」，不是「換班」</h4>
-    <p>午班 K2／B1／B2 全部在廚房。早班 4 人須留守至 <b>14:30</b>，否則午市無人接單收銀、無人沖飲品（每張套餐均附送飲品）、無人出餐收枱。午市高峰 12:00–13:30 全店 <b>7 人同時在場</b>。</p>
+    <h4>B 組 3 人是「增援」，不是「換班」</h4>
+    <p>B 組全部在廚房。A 組 4 人須留守至 <b>14:30</b>，否則午市無人接單收銀、無人沖飲品（每張套餐均附送飲品）、無人出餐收枱。午市高峰 12:00–13:30 全店 <b>7 人同時在場</b>。</p>
   </div>
 
   <!-- ② 崗位職責 -->
@@ -314,33 +315,7 @@
   <div class="block-rule"></div>
 
   <div class="duty">
-    <div class="duty__head"><div class="duty__code am">K1</div><div class="duty__name">煎蛋／早餐廚房</div><span class="duty__time">06:00 – 14:30</span></div>
-    <h5>開店 06:00–07:00</h5>
-    <ul class="ck">
-      <li>開抽氣、開爐、扒爐預熱 175°C、煮麵爐落水</li>
-      <li>電飯煲落飯；備料：火腿、餐肉、腸仔、沙爹牛肉汁</li>
-      <li>通粉／公仔麵預先汆水；打蛋液</li>
-      <li>06:50 煎一隻蛋試火候</li>
-    </ul>
-    <h5>營業</h5>
-    <ul class="bul">
-      <li><b>常餐 A</b> 火腿通粉＋餐肉腸仔＋炒蛋或煎蛋＋是日餐包＋飲品　<b>$13.59</b></li>
-      <li><b>常餐 B</b> 沙爹牛肉公仔麵＋炒蛋或煎蛋＋是日餐包＋飲品　<b>$13.59</b></li>
-      <li><b>簡餐</b> 火腿雞蛋三明治（方包）／沙爹牛肉菠蘿包 ＋飲品　<b>$8.99</b></li>
-      <li>是日餐包為迷你菠蘿包或迷你雞尾包，向 D1 領取</li>
-      <li>11:15 提醒 F1 發出早餐最後點餐；11:30 停接早餐單</li>
-      <li>午市轉為支援：大碗麵汆麵落料、補位出餐</li>
-    </ul>
-    <div class="info"><b>硬性規定：</b>所有蛋類產品必須使用<b>有機走地雞蛋</b>及<b>初榨橄欖油</b>，此為菜單 H 健康標識的前提。</div>
-    <h5>下班前</h5>
-    <ul class="ck">
-      <li>剩餘食材貼日期入雪櫃（先進先出）</li>
-      <li>清爐、清隔油網、清潔地墊</li>
-    </ul>
-  </div>
-
-  <div class="duty">
-    <div class="duty__head"><div class="duty__code am">F1</div><div class="duty__name">接單／收銀（樓面主管）</div><span class="duty__time">06:30 – 15:00</span></div>
+    <div class="duty__head"><div class="duty__code am">A1</div><div class="duty__name">接單／收銀（樓面主管）</div><span class="duty__time">06:30 – 15:00</span></div>
     <h5>開店 06:30–07:00</h5>
     <ul class="ck">
       <li>開燈、招牌、冷氣、音樂、大門</li>
@@ -353,7 +328,7 @@
       <li>落單用代號：<b>A</b>／<b>B</b>／簡餐 <b>M-三</b>、<b>M-沙</b>／焗飯 <b>紅汁</b>、<b>白汁</b>／燒臘 <b>雙拼</b>／大碗麵 <b>麵</b></li>
       <li>飲品冷熱同價，只需註明 熱奶／凍奶／熱啡／鴛鴦／凍檸茶／凍檸水</li>
       <li>大單及特殊要求須向廚房口頭覆述一次</li>
-      <li>11:25 發出早餐最後點餐；11:30 換午市餐牌；14:00 午市最後點餐</li>
+      <li>11:25 早餐最後點餐；11:30 換午市餐牌；14:00 午市最後點餐</li>
     </ul>
     <h5>收銀紀律</h5>
     <ul class="bul">
@@ -362,27 +337,53 @@
     </ul>
   </div>
 
+  <div class="duty">
+    <div class="duty__head"><div class="duty__code am">A2</div><div class="duty__name">煎蛋／早餐廚房</div><span class="duty__time">06:00 – 14:30</span></div>
+    <h5>開店 06:00–07:00</h5>
+    <ul class="ck">
+      <li>開抽氣、開爐、扒爐預熱 175°C、煮麵爐落水</li>
+      <li>電飯煲落飯；備料：火腿、餐肉、腸仔、沙爹牛肉汁</li>
+      <li>通粉／公仔麵預先汆水；打蛋液</li>
+      <li>06:50 煎一隻蛋試火候</li>
+    </ul>
+    <h5>營業</h5>
+    <ul class="bul">
+      <li><b>常餐 A</b> 火腿通粉＋餐肉腸仔＋炒蛋或煎蛋＋是日餐包＋飲品　<b>$13.59</b></li>
+      <li><b>常餐 B</b> 沙爹牛肉公仔麵＋炒蛋或煎蛋＋是日餐包＋飲品　<b>$13.59</b></li>
+      <li><b>簡餐</b> 火腿雞蛋三明治（方包）／沙爹牛肉菠蘿包 ＋飲品　<b>$8.99</b></li>
+      <li>11:15 提醒 A1 發出早餐最後點餐；11:30 停接早餐單</li>
+      <li>午市轉為支援：大碗麵汆麵落料、補位出餐</li>
+    </ul>
+    <div class="warn"><b>兼任：燒臘到貨簽收。</b>燒臘早上送到，若在 B1 到店（10:00）之前抵達，由 A2 簽收：核對送貨單、<b>逐項量溫</b>（熱貨 ≥60°C／凍貨 ≤4°C）、記錄到貨時間，暫存保溫櫃或雪櫃，貨到不合格即場拒收並通知店長。B1 到店後接手掛起與分配。</div>
+    <div class="info"><b>硬性規定：</b>所有蛋類產品必須使用<b>有機走地雞蛋</b>及<b>初榨橄欖油</b>，此為菜單 H 健康標識的前提。</div>
+    <h5>下班前</h5>
+    <ul class="ck">
+      <li>剩餘食材貼日期入雪櫃（先進先出）</li>
+      <li>清爐、清隔油網、清潔地墊</li>
+    </ul>
+  </div>
+
   <div class="two">
     <div class="duty">
-      <div class="duty__head"><div class="duty__code am">D1</div><div class="duty__name">水吧</div><span class="duty__time">06:40 – 14:30</span></div>
+      <div class="duty__head"><div class="duty__code am">A3</div><div class="duty__name">水吧</div><span class="duty__time">06:40 – 14:30</span></div>
       <h5>開店 06:40–07:00</h5>
       <ul class="ck">
         <li>落茶膽（焗 20–25 分鐘）、開咖啡機沖第一壺</li>
         <li>開製冰機、冰塊入桶、切檸檬</li>
         <li>備糖水、煉奶、淡奶</li>
-        <li>領取當日餐包並點數</li>
+        <li><b>向同址 Kam Do Bakery 餅房領取當日餐包並點數</b>（迷你菠蘿包／迷你雞尾包、簡餐用菠蘿包及方包）</li>
       </ul>
       <h5>出品標準</h5>
       <ul class="bul">
         <li>茶膽<b>每 2 小時更換</b>，掛時間牌，過時即棄</li>
         <li>熱飲用熱杯、凍飲用凍杯，落冰份量統一</li>
         <li>套餐飲品<b>冷熱同價</b>，不得收取凍飲附加費</li>
-        <li>11:00 補切檸檬；高峰時段協助出餐</li>
+        <li>11:00 補切檸檬、按需向餅房補領餐包；高峰時段協助出餐</li>
       </ul>
     </div>
 
     <div class="duty">
-      <div class="duty__head"><div class="duty__code am">F2</div><div class="duty__name">出餐／樓面</div><span class="duty__time">06:30 – 14:30</span></div>
+      <div class="duty__head"><div class="duty__code am">A4</div><div class="duty__name">出餐／樓面</div><span class="duty__time">06:30 – 14:30</span></div>
       <h5>開店 06:30–07:00</h5>
       <ul class="ck">
         <li>掃地拖地、抹枱抹椅、清潔玻璃門</li>
@@ -405,10 +406,55 @@
   </div>
 
   <div class="duty">
-    <div class="duty__head"><div class="duty__code">K2</div><div class="duty__name">飯房（蒸飯＋焗飯）</div><span class="duty__time">09:30 – 14:30</span></div>
+    <div class="duty__head"><div class="duty__code">B1</div><div class="duty__name">掛燒臘／收貨保溫</div><span class="duty__time">10:00 – 14:30</span></div>
+    <h5>接貨與掛起 10:00–10:45</h5>
+    <ul class="ck">
+      <li>向 A2 接手當日燒臘，核對送貨單與到貨溫度記錄</li>
+      <li>檢查外觀與氣味，發現異常整批不上枱</li>
+      <li><b>上鈎掛起</b>：按款式排位（豉油雞／叉燒／白切雞／鹵水鵝或鴨），瀝乾油汁</li>
+      <li>按預估銷量分配上枱份量，其餘入保溫櫃或雪櫃</li>
+    </ul>
+    <h5>準備 10:45–11:30</h5>
+    <ul class="ck">
+      <li>調製燒味汁、蔥油、薑蓉、辣椒醬，交 B2</li>
+      <li>檢查保溫櫃溫度並記錄</li>
+    </ul>
+    <h5>營業與收市</h5>
+    <ul class="bul">
+      <li>監察掛枱存量，適時由保溫櫃補貨予 B2，<b>每次補貨記錄時間</b></li>
+      <li><b>當日貨當日售完，不留隔夜</b></li>
+      <li>收市盤點餘量，通知店長調整翌日訂貨量</li>
+    </ul>
+    <div class="warn"><b>食品安全：</b>熱存 ≥60°C，或 2 小時內降至 ≤4°C 冷存；室溫掛枱陳列不超過 <b>4 小時</b>。到貨溫度、掛枱時間與補貨時間須記入《燒味收貨記錄表》。一切以 <b>Vancouver Coastal Health</b> 規定為準，開業前與衛生督察確認一次。</div>
+  </div>
+
+  <div class="duty">
+    <div class="duty__head"><div class="duty__code">B2</div><div class="duty__name">斬燒臘師傅</div><span class="duty__time">10:00 – 14:30</span></div>
+    <h5>準備 10:00–11:30</h5>
+    <ul class="ck">
+      <li>磨刀、消毒砧板（燒味砧板<b>專用</b>，不與生肉混用）</li>
+      <li>排放飯桶、飯勺、碟、外賣盒</li>
+      <li>11:00 接 B1 分配的貨品，試斬試味</li>
+    </ul>
+    <h5>營業 11:30–14:00</h5>
+    <ul class="bul">
+      <li><b>雙拼飯 $15.99</b>：客人任選 2 款（豉油雞／叉燒／白切雞／鹵水鵝或鴨）</li>
+      <li><b>由師傅制定每款的固定件數／重量標準</b>，寫成標準卡貼於砌碟位，全店統一執行</li>
+      <li>落飯用同一飯勺，不可憑感覺；斬件大小一致，骨碎不上碟</li>
+      <li>邊斬邊補，砧板每 2 小時清潔一次</li>
+    </ul>
+    <h5>下班前</h5>
+    <ul class="ck">
+      <li>餘料真空／保鮮入雪櫃貼日期，交 B1 盤點</li>
+      <li>刀具磨好收好、砧板消毒、砌碟位清潔</li>
+    </ul>
+  </div>
+
+  <div class="duty">
+    <div class="duty__head"><div class="duty__code">B3</div><div class="duty__name">飯房（蒸飯＋焗飯）</div><span class="duty__time">09:30 – 14:30</span></div>
     <h5>準備 09:30–11:30</h5>
     <ul class="ck">
-      <li>洗米、蒸飯，分兩批（11:00 · 12:30）確保新鮮</li>
+      <li>洗米、蒸飯，分兩批（11:00 · 12:30）確保新鮮；燒臘飯與焗飯共用同一飯源</li>
       <li>焗爐預熱 <b>200°C</b></li>
       <li><b>紅汁</b>（焗豬扒飯）：豬扒醃好、蕃茄肉醬煮起、芝士分份</li>
       <li><b>白汁</b>（焗海鮮意粉）：海鮮解凍瀝乾、白汁煮起、意粉預先煮至七成</li>
@@ -416,71 +462,27 @@
     </ul>
     <h5>營業 11:30–14:00</h5>
     <ul class="bul">
-      <li>焗飯需時 <b>15–20 分鐘</b>，收單即入爐，同時通知 F1 向客人說明等候時間</li>
-      <li>蒸飯保溫 ≥60°C，超過 3 小時未售出即棄</li>
+      <li>焗飯需時 <b>15–20 分鐘</b>，收單即入爐，同時通知 A1 向客人說明等候時間</li>
+      <li>蒸飯保溫 ≥60°C，超過 3 小時未售出即棄；按 B2 用量補飯</li>
       <li>兼顧大碗麵出品：麵底汆水、a set／b set 落料</li>
     </ul>
     <div class="warn"><b>海鮮專項：</b>白汁焗海鮮意粉的海鮮須<b>當日解凍、當日用完</b>，不可翻凍再用；解凍後存放於 ≤4°C，處理海鮮的砧板刀具與其他食材分開。</div>
   </div>
 
-  <div class="duty">
-    <div class="duty__head"><div class="duty__code">B1</div><div class="duty__name">燒臘收貨／掛味<span style="font-family:var(--font-body);font-size:12px;color:var(--ink-faint);font-weight:400">　（外購，店內不設掛爐）</span></div><span class="duty__time">10:00 – 14:30</span></div>
-    <h5>收貨 10:00–10:30</h5>
-    <ul class="ck">
-      <li>核對送貨單：款式、數量、價格</li>
-      <li><b>逐項量溫並記錄</b>：熱貨 ≥60°C／凍貨 ≤4°C，不合格即場拒收並通知店長</li>
-      <li>檢查外觀與氣味，發現異常整批不上枱</li>
-      <li>掛起或入保溫櫃；保留送貨單存檔</li>
-    </ul>
-    <h5>準備 10:30–11:30</h5>
-    <ul class="ck">
-      <li>調製燒味汁、蔥油、薑蓉、辣椒醬，交 B2</li>
-      <li>按預估銷量分配上枱份量，其餘留保溫櫃</li>
-    </ul>
-    <h5>營業與收市</h5>
-    <ul class="bul">
-      <li>監察存量，適時由保溫櫃補貨予 B2</li>
-      <li>每次補貨記錄時間；<b>當日貨當日售完，不留隔夜</b></li>
-      <li>收市盤點餘量，通知店長調整翌日訂貨量</li>
-    </ul>
-    <div class="warn"><b>食品安全：</b>熱存 ≥60°C，或 2 小時內降至 ≤4°C 冷存；室溫陳列不超過 <b>4 小時</b>。收貨溫度與補貨時間須記入《燒味收貨記錄表》。一切以 <b>Vancouver Coastal Health</b> 規定為準，開業前與衛生督察確認一次。</div>
-  </div>
-
-  <div class="duty">
-    <div class="duty__head"><div class="duty__code">B2</div><div class="duty__name">斬料／砌碟</div><span class="duty__time">10:00 – 14:30</span></div>
-    <h5>準備 10:00–11:30</h5>
-    <ul class="ck">
-      <li>磨刀、消毒砧板（燒味砧板<b>專用</b>，不與生肉混用）</li>
-      <li>排放飯桶、飯勺、碟、外賣盒</li>
-      <li>11:00 接收 B1 分配的貨品，試斬試味</li>
-    </ul>
-    <h5>營業 11:30–14:00</h5>
-    <ul class="bul">
-      <li><b>雙拼飯 $15.99</b>：客人任選 2 款（豉油雞／叉燒／白切雞／鹵水鵝或鴨）</li>
-      <li>每款設<b>固定件數／重量</b>，落飯用同一飯勺，不可憑感覺</li>
-      <li>邊斬邊補，砧板每 2 小時清潔一次</li>
-    </ul>
-    <h5>下班前</h5>
-    <ul class="ck">
-      <li>餘料真空／保鮮入雪櫃貼日期</li>
-      <li>刀具砧板消毒、砌碟位清潔</li>
-    </ul>
-  </div>
-
   <!-- ③ 交接班 -->
   <h2 class="block" id="s3">③ 交接班 <em>HANDOVER</em></h2>
   <div class="block-rule"></div>
-  <p class="lead">早班 → 午班交接：<b>11:00–11:30</b>。三個步驟：清 · 報 · 簽。</p>
+  <p class="lead">A 組 → B 組交接：<b>11:00–11:30</b>。三個步驟：清 · 報 · 簽。</p>
 
   <div class="steps">
     <div class="step" data-n="清"><div class="step__t">11:00–11:20</div>
       <div class="step__k">STEP 1</div><h4>清</h4>
-      <div class="step__who">負責：K1</div>
-      <p>清潔早餐爐頭、早餐備料貼日期入雪櫃、抹淨枱面交予 K2／B2。</p></div>
+      <div class="step__who">負責：A2</div>
+      <p>清潔早餐爐頭、早餐備料貼日期入雪櫃、抹淨枱面交予 B2／B3。</p></div>
     <div class="step" data-n="報"><div class="step__t">11:20–11:25</div>
       <div class="step__k">STEP 2</div><h4>報</h4>
-      <div class="step__who">K1 → K2／B1／B2　F1 → 全組</div>
-      <p>60 秒口頭報告，必須交代右列 5 項內容。</p></div>
+      <div class="step__who">A2 → B1／B2／B3　A1 → 全組</div>
+      <p>60 秒口頭報告，必須交代下列 5 項內容。</p></div>
     <div class="step" data-n="簽"><div class="step__t">11:25–11:30</div>
       <div class="step__k">STEP 3</div><h4>簽</h4>
       <div class="step__who">負責：交接雙方</div>
@@ -492,20 +494,20 @@
     <div class="five__i">特殊要求<small>走蛋、少甜、食物敏感、外賣取餐時間</small></div>
     <div class="five__i">食材短缺<small>何種食材已用完、餘量多少</small></div>
     <div class="five__i">設備狀況<small>爐具、焗爐、咖啡機、洗碗機</small></div>
-    <div class="five__i">預訂／大額訂單<small>當日有否預訂或大單</small></div>
+    <div class="five__i">燒臘到貨<small>到貨時間、量溫結果、有否拒收</small></div>
   </div>
 
   <div class="alert">
     <div class="alert__tag">RULE</div>
     <h4>11:30 前落的單一律當作早餐單</h4>
-    <p>交接的半小時早午重疊，最容易出錯。規則：<b>11:30 前落的單由 K1 負責到底</b>，不可轉交午班；11:30 後的單才由午班接手。</p>
+    <p>交接的半小時早午重疊，最容易出錯。規則：<b>11:30 前落的單由 A2 負責到底</b>，不可轉交 B 組；11:30 後的單才由 B 組接手。</p>
   </div>
 
   <h3 class="subcat">交接班記錄表 <span>每日一張，張貼於廚房</span></h3>
   <div class="form">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 金都茶餐廳 · 交接班記錄表      日期：__________
 
-班次：□ 早→午    □ 午→收市
+班次：□ A→B    □ B→收市
 交班人：________  接班人：________  時間：______
 
 1) 未完成訂單號 ______________________________
@@ -513,8 +515,8 @@
 3) 短缺食材     ______________________________
 4) 設備狀況     □ 正常   □ 異常：______________
 5) 預訂／大單   ______________________________
-6) 燒臘收貨     到貨時間 ______ 量溫 ______°C
-7) 現金（F1 填）備用金 $______ 中途點算 $______
+6) 燒臘到貨     時間 ______ 量溫 ______°C  □ 全數接收 □ 有拒收
+7) 現金（A1 填）備用金 $______ 中途點算 $______
 
 交班人簽名 __________  接班人簽名 __________
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</div>
@@ -524,11 +526,11 @@
   <table class="tbl">
     <thead><tr><th style="width:120px">時間</th><th>工作內容</th><th style="width:100px">負責</th></tr></thead>
     <tbody>
-      <tr><td class="t">14:00</td><td><b>午市最後點餐</b>，停接堂食單</td><td class="k">F1</td></tr>
+      <tr><td class="t">14:00</td><td><b>午市最後點餐</b>，停接堂食單</td><td class="k">A1</td></tr>
       <tr><td class="t">14:00–14:30</td><td>完成餘下訂單、廚房開始清潔、燒臘盤點餘量</td><td class="k">全組</td></tr>
       <tr><td class="t">14:30</td><td>各崗位完成下班前清潔與食材入櫃</td><td class="k">各崗位</td></tr>
-      <tr><td class="t">14:30–15:00</td><td>F1 結算、列印 Z-report 雙人核對；通知供應商翌日訂貨量</td><td class="k">F1</td></tr>
-      <tr><td class="t">15:00</td><td>五項必查：①明火抽氣全熄 ②煤氣總掣關 ③雪櫃運作正常門關妥 ④現金入夾萬、Z-report 已簽 ⑤前後門鎖好、警鐘啟動</td><td class="k">F1</td></tr>
+      <tr><td class="t">14:30–15:00</td><td>A1 結算、列印 Z-report 雙人核對；按 B1 盤點通知供應商翌日訂貨量</td><td class="k">A1</td></tr>
+      <tr><td class="t">15:00</td><td>五項必查：①明火抽氣全熄 ②煤氣總掣關 ③雪櫃保溫櫃運作正常門關妥 ④現金入夾萬、Z-report 已簽 ⑤前後門鎖好、警鐘啟動</td><td class="k">A1</td></tr>
     </tbody>
   </table>
   </div>
@@ -537,39 +539,42 @@
   <h2 class="block" id="s4">④ 每日時間軸 <em>DAILY TIMELINE</em></h2>
   <div class="block-rule"></div>
   <div class="tl">
-    <div class="tl__i"><div class="tl__t">06:00</div><span class="tl__d"></span><div class="tl__c"><b>K1</b> 開爐、落飯、備料、落茶膽</div></div>
-    <div class="tl__i"><div class="tl__t">06:30</div><span class="tl__d"></span><div class="tl__c"><b>F1</b> 開 POS／擺枱　<b>F2</b> 清潔／擺餐具</div></div>
-    <div class="tl__i"><div class="tl__t">06:40</div><span class="tl__d"></span><div class="tl__c"><b>D1</b> 落茶膽、開咖啡機、切檸檬</div></div>
-    <div class="tl__i tl__i--key"><div class="tl__t">07:00</div><span class="tl__d"></span><div class="tl__c"><b>🔔 開市（早餐＋簡餐）</b><small>樓面 4 人</small></div></div>
-    <div class="tl__i"><div class="tl__t">09:30</div><span class="tl__d"></span><div class="tl__c"><b>K2 到店</b> 洗米蒸飯、焗爐預熱、紅汁白汁分別備妥</div></div>
-    <div class="tl__i tl__i--key"><div class="tl__t">10:00</div><span class="tl__d"></span><div class="tl__c"><b>B1／B2 到店 · 燒臘到貨</b><small>驗貨量溫、掛起保溫、磨刀調汁</small></div></div>
-    <div class="tl__i tl__i--key"><div class="tl__t">11:00</div><span class="tl__d"></span><div class="tl__c"><b>交接班開始「清」</b><small>B2 接貨試斬試味</small></div></div>
+    <div class="tl__i"><div class="tl__t">06:00</div><span class="tl__d"></span><div class="tl__c"><b>A2</b> 開爐、落飯、備料、落茶膽</div></div>
+    <div class="tl__i"><div class="tl__t">06:30</div><span class="tl__d"></span><div class="tl__c"><b>A1</b> 開 POS／擺枱　<b>A4</b> 清潔／擺餐具</div></div>
+    <div class="tl__i"><div class="tl__t">06:40</div><span class="tl__d"></span><div class="tl__c"><b>A3</b> 落茶膽、開咖啡機、切檸檬、向餅房領餐包</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">07:00</div><span class="tl__d"></span><div class="tl__c"><b>🔔 開市（早餐＋簡餐）</b><small>A 組 4 人</small></div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">早上</div><span class="tl__d"></span><div class="tl__c"><b>燒臘到貨</b><small>由 A2 簽收、量溫、記錄，暫存保溫櫃</small></div></div>
+    <div class="tl__i"><div class="tl__t">09:30</div><span class="tl__d"></span><div class="tl__c"><b>B3 到店</b> 洗米蒸飯、焗爐預熱、紅汁白汁分別備妥</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">10:00</div><span class="tl__d"></span><div class="tl__c"><b>B1／B2 到店</b><small>B1 接貨掛起、分配保溫；B2 磨刀消毒、擺砌碟位</small></div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">11:00</div><span class="tl__d"></span><div class="tl__c"><b>交接班開始「清」</b><small>B2 接貨試斬、定份量標準</small></div></div>
     <div class="tl__i"><div class="tl__t">11:25</div><span class="tl__d"></span><div class="tl__c"><b>🔔 早餐最後點餐</b></div></div>
     <div class="tl__i tl__i--key"><div class="tl__t">11:30</div><span class="tl__d"></span><div class="tl__c"><b>🔔 午市開始</b><small>全店 7 人同時在場</small></div></div>
     <div class="tl__i"><div class="tl__t">12:00</div><span class="tl__d"></span><div class="tl__c"><b>高峰時段</b><small>12:00–13:30</small></div></div>
-    <div class="tl__i"><div class="tl__t">13:00</div><span class="tl__d"></span><div class="tl__c"><b>F1</b> 中途點算現金</div></div>
+    <div class="tl__i"><div class="tl__t">13:00</div><span class="tl__d"></span><div class="tl__c"><b>A1</b> 中途點算現金</div></div>
     <div class="tl__i tl__i--key"><div class="tl__t">14:00</div><span class="tl__d"></span><div class="tl__c"><b>🔔 午市最後點餐</b></div></div>
-    <div class="tl__i"><div class="tl__t">14:30</div><span class="tl__d"></span><div class="tl__c"><b>K1／F2／D1／K2／B1／B2</b> 下班</div></div>
-    <div class="tl__i tl__i--key"><div class="tl__t">15:00</div><span class="tl__d"></span><div class="tl__c"><b>🔔 收市</b><small>F1 最後離開，執行五項必查</small></div></div>
+    <div class="tl__i"><div class="tl__t">14:30</div><span class="tl__d"></span><div class="tl__c"><b>A2／A3／A4／B1／B2／B3</b> 下班</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">15:00</div><span class="tl__d"></span><div class="tl__c"><b>🔔 收市</b><small>A1 最後離開，執行五項必查</small></div></div>
   </div>
 
   <!-- ⑤ 方案總結 -->
   <h2 class="block" id="s5">⑤ 方案總結 <em>PLAN SUMMARY</em></h2>
   <div class="block-rule"></div>
   <div class="plan">
-    <div class="plan__i"><div class="plan__t">燒臘：外購模式</div><div class="plan__d">店內不設掛爐。B1 負責 10:00 收貨、驗貨量溫、掛起保溫；B2 負責斬料砌碟。當日貨當日售完。</div></div>
-    <div class="plan__i"><div class="plan__t">午班為增援</div><div class="plan__d">早班 4 人留守至 14:30，午班 3 人於 09:30–10:00 陸續加入，高峰 7 人同場。</div></div>
-    <div class="plan__i"><div class="plan__t">焗飯兩款汁</div><div class="plan__d">紅汁焗豬扒飯／白汁焗海鮮意粉，$15.99。由 K2 一人負責，兩款汁分開預備，海鮮當日用完。</div></div>
-    <div class="plan__i"><div class="plan__t">簡餐由 K1 兼顧</div><div class="plan__d">三明治／沙爹牛肉菠蘿包 $8.99，無須另設崗位，與常餐同一爐頭出品。</div></div>
-    <div class="plan__i"><div class="plan__t">大碗麵由 K2 兼任</div><div class="plan__d">配料前一日炆好，午市只需汆麵落料。日銷量若持續超過 40 碗，再增設半日班專責煮麵。</div></div>
-    <div class="plan__i"><div class="plan__t">交接班：清·報·簽</div><div class="plan__d">11:00–11:30 執行，附記錄表雙方簽名。11:30 前落的單由早班負責到底。</div></div>
-    <div class="plan__i plan__i--pend"><div class="plan__t">待補：燒臘送貨細節</div><div class="plan__d">送貨時間與頻率、是否已斬件，將決定 B1／B2 的到店時間與工作量分配。</div></div>
-    <div class="plan__i plan__i--pend"><div class="plan__t">待補：餅店供應方式</div><div class="plan__d">自家烘焙須增設凌晨班次；由 Kam Do Bakery 配送則維持現有編制。</div></div>
+    <div class="plan__i"><div class="plan__t">崗位編號</div><div class="plan__d">A1–A4 為早餐及樓面組（全日留守），B1–B3 為午市廚房組（燒臘 2 ＋ 飯房 1）。全店 7 人。</div></div>
+    <div class="plan__i"><div class="plan__t">燒臘：早上到貨，店內掛＋斬</div><div class="plan__d">貨早於 10:00 到由 A2 簽收量溫；B1 負責掛起、保溫、補貨；B2 為專職斬燒臘師傅，並制定份量標準。</div></div>
+    <div class="plan__i"><div class="plan__t">餅類由同址餅房供應</div><div class="plan__d">茶餐廳設於 Kam Do Bakery 內，餐包與菠蘿包每朝由 A3 向餅房領取點數，無須另設焗包班次。</div></div>
+    <div class="plan__i"><div class="plan__t">B 組為增援</div><div class="plan__d">A 組 4 人留守至 14:30，B 組 09:30–10:00 陸續加入，高峰 7 人同場。</div></div>
+    <div class="plan__i"><div class="plan__t">焗飯兩款汁</div><div class="plan__d">紅汁焗豬扒飯／白汁焗海鮮意粉 $15.99，由 B3 一人負責，兩款汁分開預備，海鮮當日用完。</div></div>
+    <div class="plan__i"><div class="plan__t">簡餐由 A2 兼顧</div><div class="plan__d">三明治／沙爹牛肉菠蘿包 $8.99，與常餐同一爐頭出品，無須另設崗位。</div></div>
+    <div class="plan__i"><div class="plan__t">大碗麵由 B3 兼任</div><div class="plan__d">配料前一日炆好，午市只需汆麵落料。日銷量若持續超過 40 碗，再增設半日班專責煮麵。</div></div>
+    <div class="plan__i"><div class="plan__t">交接班：清·報·簽</div><div class="plan__d">11:00–11:30 執行，附記錄表雙方簽名。11:30 前落的單由 A 組負責到底。</div></div>
+    <div class="plan__i plan__i--pend"><div class="plan__t">待補：燒臘到貨的實際時間</div><div class="plan__d">確定後即可寫入時間軸，並決定由 A2 簽收抑或 B1 直接接貨。</div></div>
+    <div class="plan__i plan__i--pend"><div class="plan__t">待補：大碗麵配料規則</div><div class="plan__d">a set／b set 各選多少款、額外配料如何收費，影響落單與成本。</div></div>
   </div>
 
   <div class="foot">
     <b>金都茶餐廳</b><br>
-    營運 SOP v0.2 · 內部文件 · 2026-07-31<br>
+    營運 SOP v0.3 · 內部文件 · 2026-08-01<br>
     配合《菜單草稿 v0.4》使用
   </div>
 
