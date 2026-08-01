@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>金都 · 營運 SOP v0.4 — 人手 · 班次 · 職責 · 交接班</title>
+<title>金都 · 營運 SOP v0.5 — 人手 · 班次 · 職責 · 交接班</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
@@ -203,7 +203,7 @@
 <div class="bar">
   <div class="bar__brand">
     <span class="bar__mark">金都</span>
-    <span class="bar__tag">OPERATIONS SOP v0.4</span>
+    <span class="bar__tag">OPERATIONS SOP v0.5</span>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
     <a class="bar__link" href="index.html">← 菜單草稿</a>
@@ -217,7 +217,7 @@
     <div class="hero__stamp">SOP</div>
     <div class="hero__eyebrow">KAM DO · 內部營運規劃</div>
     <div class="hero__brush">營運手冊</div>
-    <h1 class="hero__title">人手編制 · 班次 · 崗位職責 · 交接班 <em>v0.4</em></h1>
+    <h1 class="hero__title">人手編制 · 班次 · 崗位職責 · 交接班 <em>v0.5</em></h1>
     <p class="hero__sub">A 組 06:00–11:30 早市 · B 組 09:30–18:00 午市及下午</p>
     <div class="facts">
       <span>茶餐廳設於 <b>Kam Do Bakery</b> 內，餅類由同址餅房供應</span>
@@ -225,7 +225,7 @@
       <span>A 組 <b>11:30 收工</b>　B 組 <b>18:00 收工</b></span>
       <span>常餐 A／B <b>$13.59</b></span>
       <span>簡餐 <b>$8.99</b></span>
-      <span>焗飯 紅汁／白汁 <b>$15.99</b></span>
+      <span>焗飯 紅汁／白汁 <b>$15.99</b>　<b>僅限午市</b> 11:30–14:00</span>
       <span>燒臘雙拼飯 <b>$15.99</b></span>
       <span>大碗麵 <b>$15.99</b></span>
     </div>
@@ -332,11 +332,14 @@
     </tbody>
   </table>
   </div>
+  <p class="lead" style="margin-top:14px">14:00 焗飯停售後，<b>B3 的出品負擔大減</b>，改為主力出餐、收枱與集中洗碗；B2 專責燒臘、B1 守前枱的分工維持不變。</p>
 
   <div class="prop">
     <div class="prop__tag">14:00 – 18:00</div>
     <h4>下午時段安排</h4>
-    <p><b>供應：</b>燒臘飯、焗飯、大碗麵、簡餐、飲品持續供應至 <b>17:30 最後點餐</b>；燒臘售完即止，不補新貨。</p>
+    <p><b>供應：</b>14:00 起 <b>焗飯停售</b>，焗爐關掉並清潔；<b>燒臘飯、大碗麵、簡餐、飲品</b>繼續供應至 <b>17:30 最後點餐</b>。</p>
+    <p><b>焗飯最後落單 13:45</b>——即叫即焗需時 15–20 分鐘，13:45 之後落單無法在 14:00 前出爐。</p>
+    <p><b>燒臘留貨：</b>午市只放約七成上枱，其餘留保溫櫃供下午銷售，避免 13:30 前售罄後下午無主打可賣。</p>
     <p><b>輪休：</b>14:00–15:00 生意轉淡，三人<b>輪流用膳及休息各 30 分鐘</b>，前枱任何時候至少留一人。</p>
     <p><b>下午同時進行：</b>集中洗碗 · 清潔砧板刀具 · 補充醬料飲管外賣盒 · B1 盤點燒臘餘量並通知店長翌日訂貨量。</p>
   </div>
@@ -453,6 +456,7 @@
     <ul class="bul">
       <li><b>前枱主責</b>：接單、收銀、沖飲品；離開前枱補貨時由 B3 頂替</li>
       <li>監察掛枱存量，適時由保溫櫃補貨予 B2，<b>每次補貨記錄時間</b></li>
+      <li><b>留起下午份量</b>：午市只放約七成上枱，其餘留保溫櫃供 14:00 後銷售</li>
       <li>茶膽每 2 小時更換並掛時間牌</li>
       <li>15:00 中途點算現金，超過設定金額存入夾萬</li>
       <li><b>當日貨當日售完，不留隔夜</b>；售完即在餐牌標示</li>
@@ -493,16 +497,18 @@
     <div class="duty__head"><div class="duty__code">B3</div><div class="duty__name">飯房（蒸飯＋焗飯）</div><span class="duty__time">09:30 – 18:00</span></div>
     <h5>準備 09:30–11:30</h5>
     <ul class="ck">
-      <li>洗米、蒸飯，分兩批（11:00 · 12:30）確保新鮮；燒臘飯與焗飯共用同一飯源</li>
+      <li>洗米、蒸飯，分三批（11:00 · 12:30 · 15:00）確保新鮮；燒臘飯與焗飯共用同一飯源</li>
       <li>焗爐預熱 <b>200°C</b></li>
       <li><b>紅汁</b>（焗豬扒飯）：豬扒醃好、蕃茄肉醬煮起、芝士分份</li>
       <li><b>白汁</b>（焗海鮮意粉）：海鮮解凍瀝乾、白汁煮起、意粉預先煮至七成</li>
       <li>點算大碗麵麵底存量（蕎麥麵／烏冬／瀨粉／魚麵）</li>
+      <li><b>大碗麵配料分兩鍋炆製</b>，下午開第二鍋，避免長時間保溫走味</li>
       <li>接 A2 交來的餐包、沙爹汁，供下午簡餐使用</li>
     </ul>
     <h5>營業 11:30–17:30</h5>
     <ul class="bul">
       <li>焗飯需時 <b>15–20 分鐘</b>，收單即入爐，同時通知 B1 向客人說明等候時間</li>
+      <li><b>焗飯最後落單 13:45</b>，14:00 前出清最後一爐，並提醒 B1 在餐牌標示停售</li>
       <li>蒸飯保溫 ≥60°C，超過 3 小時未售出即棄；按 B2 用量補飯</li>
       <li>大碗麵：麵底汆水、a set／b set 落料</li>
       <li><b>下午簡餐</b>：三明治／沙爹牛肉菠蘿包，用小爐頭即可</li>
@@ -510,8 +516,11 @@
     </ul>
     <h5>下午 14:00 後</h5>
     <ul class="ck">
+      <li><b>關焗爐並清潔</b>；紅汁白汁與海鮮餘料按份量入雪櫃或棄置</li>
+      <li>15:00 蒸最後一批飯，供下午燒臘飯使用</li>
       <li>集中清洗上午泡水的碗碟</li>
-      <li>清潔焗爐與蒸櫃、補充醬料飲管外賣盒</li>
+      <li>清潔蒸櫃、補充醬料飲管外賣盒</li>
+      <li>轉為主力出餐、收枱，支援前枱</li>
     </ul>
     <div class="warn"><b>海鮮專項：</b>白汁焗海鮮意粉的海鮮須<b>當日解凍、當日用完</b>，不可翻凍再用；解凍後存放於 ≤4°C，處理海鮮的砧板刀具與其他食材分開。</div>
   </div>
@@ -583,6 +592,8 @@ A1 簽名 __________   B1 簽名 __________
     <div class="tl__i tl__i--key"><div class="tl__t">11:15</div><span class="tl__d"></span><div class="tl__c"><b>🔔 早餐停止落單 · 交接開始「清」</b></div></div>
     <div class="tl__i tl__i--key"><div class="tl__t">11:30</div><span class="tl__d"></span><div class="tl__c"><b>🔔 A 組收工 · 午市開始</b><small>全店只餘 B 組 3 人</small></div></div>
     <div class="tl__i"><div class="tl__t">12:00</div><span class="tl__d"></span><div class="tl__c"><b>高峰時段</b><small>12:00–13:30</small></div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">13:45</div><span class="tl__d"></span><div class="tl__c"><b>🔔 焗飯最後落單</b></div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">14:00</div><span class="tl__d"></span><div class="tl__c"><b>🔔 午市結束 · 焗飯停售</b><small>關焗爐清潔；燒臘／大碗麵／簡餐／飲品繼續</small></div></div>
     <div class="tl__i"><div class="tl__t">14:00</div><span class="tl__d"></span><div class="tl__c"><b>輪流用膳休息</b><small>各 30 分鐘，前枱至少留一人；同時集中洗碗</small></div></div>
     <div class="tl__i"><div class="tl__t">15:00</div><span class="tl__d"></span><div class="tl__c"><b>B1</b> 中途點算現金</div></div>
     <div class="tl__i tl__i--key"><div class="tl__t">17:30</div><span class="tl__d"></span><div class="tl__c"><b>🔔 最後點餐</b><small>燒臘售完即止</small></div></div>
@@ -598,15 +609,16 @@ A1 簽名 __________   B1 簽名 __________
     <div class="plan__i"><div class="plan__t">B1 兼任午後主管</div><div class="plan__d">掛燒臘之外負責前枱接單、收銀、飲品，以及 15:00 點鈔與 18:00 收市結算。</div></div>
     <div class="plan__i"><div class="plan__t">燒臘：早上到貨，店內掛＋斬</div><div class="plan__d">貨早於 10:00 到由 A2 簽收量溫；B1 掛起保溫補貨；B2 專職斬料並制定份量標準。售完即止。</div></div>
     <div class="plan__i"><div class="plan__t">餅類由同址餅房供應</div><div class="plan__d">茶餐廳設於 Kam Do Bakery 內，餐包每朝由 A3 領取點數，無須另設焗包班次。</div></div>
-    <div class="plan__i"><div class="plan__t">下午時段</div><div class="plan__d">14:00–15:00 輪流用膳休息並集中洗碗；供應維持至 17:30 最後點餐。</div></div>
-    <div class="plan__i plan__i--pend"><div class="plan__t">待確認：下午供應範圍</div><div class="plan__d">現按「午市全線供應至 17:30」編寫。若 14:00 後只做簡餐與飲品，B3 的備料量可再縮減。</div></div>
+    <div class="plan__i"><div class="plan__t">午市限定焗飯</div><div class="plan__d">焗飯只在 11:30–14:00 供應，最後落單 13:45；14:00 關焗爐清潔。唯一需要開爐的出品線集中在午市完成。</div></div>
+    <div class="plan__i"><div class="plan__t">下午時段 14:00–17:30</div><div class="plan__d">燒臘、大碗麵、簡餐、飲品繼續供應；燒臘須留起約三成下午賣。14:00–15:00 輪流用膳休息並集中洗碗。</div></div>
+    <div class="plan__i plan__i--pend"><div class="plan__t">待確認：燒臘上枱與留貨比例</div><div class="plan__d">現按「午市七成、下午三成」編寫，開業後按實際銷情由 B1 調整並記錄。</div></div>
     <div class="plan__i plan__i--pend"><div class="plan__t">待確認：是否加一名下午樓面</div><div class="plan__d">高峰 3 人偏緊。可先試行兩星期，視乎排隊與翻枱情況再決定。</div></div>
   </div>
 
   <div class="foot">
     <b>金都茶餐廳</b><br>
-    營運 SOP v0.4 · 內部文件 · 2026-08-01<br>
-    配合《菜單草稿 v0.4》使用
+    營運 SOP v0.5 · 內部文件 · 2026-08-01<br>
+    配合《菜單草稿 v0.5》使用
   </div>
 
 </div>
