@@ -115,9 +115,6 @@
   .creed__pairs{display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:8px; margin-top:16px}
   .creed__pairs span{background:#ffffff16; border:1px solid #efd68f3d; border-radius:8px; padding:7px 12px; font-size:13.5px}
   .creed__pairs b{color:var(--seal-gold)}
-  .creed__hold{margin-top:14px; background:#3a0d0f66; border:1px solid #efd68f3d; border-radius:9px;
-    padding:10px 14px; font-size:13.5px; line-height:1.8; max-width:740px}
-  .creed__hold b{color:var(--seal-gold)}
 
   /* ── 班次條 ── */
   .shifts{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px 12px; box-shadow:var(--shadow)}
@@ -172,12 +169,6 @@
     padding:8px 12px; font-size:13px; line-height:1.7; color:#3b5641}
   .post__help b{font-family:var(--font-disp); font-weight:700; color:var(--green)}
 
-  /* ── 規矩 ── */
-  .rules{background:var(--note-bg); border:1px solid var(--note-bd); border-left:5px solid var(--terra);
-    border-radius:10px; padding:15px 18px; margin-top:30px; font-size:13.5px; line-height:1.95; box-shadow:var(--shadow)}
-  .rules b{color:var(--red-deep)}
-  .rules__t{font-family:var(--font-disp); font-weight:900; font-size:15.5px; color:var(--red-deep); margin-bottom:4px}
-
   .foot{position:relative; text-align:center; margin-top:56px; padding-top:26px; border-top:1px solid var(--line);
     color:var(--ink-faint); font-size:12.5px; line-height:1.9}
   .foot__seal{width:52px; height:52px; margin:0 auto 12px; border-radius:50%; background:var(--seal) center/cover;
@@ -212,8 +203,8 @@
       <span>送餐 <b>08:30 – 12:30</b></span>
       <span>午後班 <b>08:00 – 18:00</b></span>
       <span>兩轉車 <b>09:00</b> · <b>11:30</b></span>
-      <span>焗飯 <b>11:30 – 14:00</b></span>
-      <span>最後落單 <b>17:30</b> · 收檔 <b>18:00</b></span>
+      <span>焗飯 <b>11:00 – 14:00</b></span>
+      <span>收工 <b>18:00</b> · 人多可延長</span>
     </div>
   </header>
 
@@ -248,10 +239,6 @@
       <span><b>飯房</b> → 幫手斬、包裝</span>
       <span><b>扒爐</b> → 落粉麵、入盒</span>
       <span><b>送餐</b> → 未出車先入盒</span>
-    </div>
-    <div class="creed__hold">
-      <b>只有兩樣不可代做：</b>點數簽名（08:45、11:15）、保溫箱量溫記錄。
-      <b>換手之前先洗手</b>，生熟砧板刀具分開。
     </div>
   </div>
 
@@ -304,7 +291,7 @@
     <div class="tl__i"><div class="tl__t">05:30</div><span class="tl__d"></span><div class="tl__c"><b>開爐</b>　印預訂清單、分好生產量 · 扒爐 175°C · 落飯、預烚粉麵</div></div>
     <div class="tl__i"><div class="tl__t">06:00</div><span class="tl__d"></span><div class="tl__c"><b>水吧落茶膽、開咖啡機</b>　250 杯份量分批煲</div></div>
     <div class="tl__i"><div class="tl__t">06:30</div><span class="tl__d"></span><div class="tl__c"><b>入盒兩位到店</b>　備盒袋、貼標機入紙 · 預訂與街客分兩邊擺</div></div>
-    <div class="tl__i tl__i--key"><div class="tl__t">07:00</div><span class="tl__d"></span><div class="tl__c"><b>開檔</b></div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">07:00</div><span class="tl__d"></span><div class="tl__c"><b>開檔</b>　街客早餐 A／B／C</div></div>
     <div class="tl__i tl__i--key"><div class="tl__t">07:30</div><span class="tl__d"></span><div class="tl__c"><b>開始入早餐</b><small>凍的先入，熱的最後放 · 入盒到上車不過一個鐘</small></div></div>
     <div class="tl__i"><div class="tl__t">08:00</div><span class="tl__d"></span><div class="tl__c"><b>飯房開工</b>　洗米蒸飯 300 份 · 焗爐預熱 · 調紅白汁</div></div>
     <div class="tl__i"><div class="tl__t">早上</div><span class="tl__d"></span><div class="tl__c"><b>燒臘到貨</b>　扒爐位簽收、量溫寫低、入保溫櫃</div></div>
@@ -315,16 +302,17 @@
     <div class="tl__i"><div class="tl__t">09:45</div><span class="tl__d"></span><div class="tl__c"><b>第一轉車回程</b>　交收單歸檔</div></div>
     <div class="tl__i"><div class="tl__t">10:00</div><span class="tl__d"></span><div class="tl__c"><b>樓面到店</b></div></div>
     <div class="tl__i"><div class="tl__t">11:00</div><span class="tl__d"></span><div class="tl__c"><b>焗第一批焗飯</b>　入熱櫃 ≥60°C</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">11:00</div><span class="tl__d"></span><div class="tl__c"><b>午市開始</b>　焗飯、雙拼燒臘飯、大碗麵</div></div>
     <div class="tl__i tl__i--key"><div class="tl__t">11:15</div><span class="tl__d"></span><div class="tl__c"><b>午餐點數</b>　兩人簽名</div></div>
-    <div class="tl__i tl__i--key"><div class="tl__t">11:30</div><span class="tl__d"></span><div class="tl__c"><b>第二轉車出發 · 午市開始</b>　午餐 300</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">11:30</div><span class="tl__d"></span><div class="tl__c"><b>第二轉車出發</b>　午餐 300</div></div>
     <div class="tl__i"><div class="tl__t">12:15</div><span class="tl__d"></span><div class="tl__c"><b>送餐回程收工</b></div></div>
     <div class="tl__i"><div class="tl__t">12:30</div><span class="tl__d"></span><div class="tl__c"><b>焗第二批焗飯</b></div></div>
     <div class="tl__i tl__i--key"><div class="tl__t">13:00</div><span class="tl__d"></span><div class="tl__c"><b>早班收工</b><small>早班的街客單，早班做完才走</small></div></div>
     <div class="tl__i"><div class="tl__t">13:45</div><span class="tl__d"></span><div class="tl__c"><b>焗飯最後落單</b></div></div>
     <div class="tl__i tl__i--key"><div class="tl__t">14:00</div><span class="tl__d"></span><div class="tl__c"><b>焗飯停售 · 熄焗爐</b>　輪流食飯各半個鐘 · 集中洗廚具</div></div>
     <div class="tl__i"><div class="tl__t">15:00</div><span class="tl__d"></span><div class="tl__c"><b>續斬 · 中途點鈔</b>　蒸最後一批飯 · 砧板副手收工 · 留起三成燒臘</div></div>
-    <div class="tl__i tl__i--key"><div class="tl__t">17:30</div><span class="tl__d"></span><div class="tl__c"><b>最後落單</b>　燒臘賣完即止</div></div>
-    <div class="tl__i tl__i--key"><div class="tl__t">18:00</div><span class="tl__d"></span><div class="tl__c"><b>收檔</b><small>看場的最後離開 · 明火抽氣、煤氣掣、雪櫃保溫櫃、現金日結、門鎖警鐘</small></div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">17:30</div><span class="tl__d"></span><div class="tl__c"><b>最後落單</b>　燒臘賣完即止 · 延長營業則順延</div></div>
+    <div class="tl__i tl__i--key"><div class="tl__t">18:00</div><span class="tl__d"></span><div class="tl__c"><b>收檔（人多可延長）</b><small>看場的最後離開 · 明火抽氣、煤氣掣、雪櫃保溫櫃、現金日結、門鎖警鐘</small></div></div>
   </div>
 
   <!-- ───────── 三 ───────── -->
@@ -470,15 +458,6 @@
       <div class="post__help"><b>得閒頂手：</b>沖飲品、落碟、洗廚具。</div>
     </div>
 
-  </div>
-
-  <div class="rules">
-    <div class="rules__t">不能鬆的幾條</div>
-    熱食入盒到交收<b>不過一個鐘</b>；保溫箱 ≥60°C，出發前後各量一次溫。<br>
-    蒸飯 ≥60°C，過三個鐘未賣出即棄；焗飯熱櫃不過四個鐘，14:00 未賣出即棄。<br>
-    燒臘室溫掛枱不過四個鐘，當日賣完；茶膽兩個鐘一換。<br>
-    現金一日點三次，每次兩人簽名，未交接不得離開。<br>
-    有蛋的出品一律用有機走地雞蛋與初榨橄欖油。
   </div>
 
   <div class="foot">

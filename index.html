@@ -6,7 +6,7 @@
 <title>金都 · 餐牌 v1.1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=LXGW+WenKai+TC:wght@700&family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     /* 取自金都印章 */
@@ -26,6 +26,7 @@
     --marble:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.016' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.81  0 0 0 0 0.42  0 0 0 0 0.25  0 0 0 -1.6 0.86'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
 
     --font-brush:"Ma Shan Zheng",cursive;
+    --font-kai:"LXGW WenKai TC","Noto Serif TC",serif;
     --font-disp:"Noto Serif TC",serif;
     --font-body:"Noto Sans TC",sans-serif;
     --font-mono:"JetBrains Mono",monospace;
@@ -71,26 +72,11 @@
   .hero__latin{font-family:var(--font-latin); font-style:italic; font-size:clamp(12px,1.9vw,15px);
     color:var(--gold); letter-spacing:5px; margin-top:5px}
 
-  .brush-line{font-family:var(--font-brush); font-size:clamp(20px,4vw,28px); color:var(--terra);
-    text-align:center; margin:22px 0 2px; letter-spacing:4px}
-  .hero__note{text-align:center; font-size:13px; color:var(--ink-faint); margin-bottom:24px}
 
-  .nav{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:0 0 34px}
-  .nav a{font-family:var(--font-disp); font-weight:600; font-size:13.5px; text-decoration:none; color:var(--ink-soft);
-    background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:6px 16px; transition:.15s}
-  .nav a:hover{background:var(--seal-red); color:var(--seal-gold); border-color:var(--seal-red)}
 
-  /* 五樣本事 */
-  .five{display:grid; grid-template-columns:repeat(auto-fit,minmax(158px,1fr)); gap:11px; margin-bottom:30px}
-  .five__i{position:relative; overflow:hidden; background:var(--panel); border:1px solid var(--line);
-    border-top:3px solid var(--seal-red); border-radius:10px; padding:13px 15px; box-shadow:var(--shadow)}
-  .five__i::after{content:""; position:absolute; right:-26px; bottom:-26px; width:72px; height:72px; border-radius:50%;
-    border:2px solid #ce6b4022; box-shadow:inset 0 0 0 5px #c01b210f}
-  .five__i b{font-family:var(--font-disp); font-weight:900; font-size:17px; display:block; letter-spacing:2px}
-  .five__i span{font-size:12.5px; color:var(--ink-soft); display:block; margin-top:3px; position:relative}
 
   /* 章節 */
-  h2.block{font-family:var(--font-disp); font-weight:900; font-size:clamp(21px,3.2vw,26px); margin:44px 0 5px;
+  h2.block{font-family:var(--font-disp); font-weight:900; font-size:clamp(21px,3.2vw,26px); margin:84px 0 5px;
     display:flex; align-items:center; gap:12px; scroll-margin-top:70px; letter-spacing:4px; flex-wrap:wrap}
   h2.block::before{content:""; flex:none; width:22px; height:22px; border-radius:50%;
     border:2px solid var(--seal-red); box-shadow:inset 0 0 0 3px var(--paper), inset 0 0 0 6px var(--terra)}
@@ -103,6 +89,9 @@
   h3.sub::before{content:"◎"; color:var(--terra); font-size:14px}
   h3.sub small{font-family:var(--font-body); font-weight:400; font-size:12px; color:var(--gold); letter-spacing:0}
   .rule{font-size:13px; color:var(--ink-faint); margin:9px 0 0}
+  .must{margin:16px 0 0; background:var(--panel); border:1px solid var(--line); border-left:5px solid var(--seal-red);
+    border-radius:10px; padding:12px 17px; font-size:14.5px; line-height:2}
+  .must b{color:var(--red-deep)}
   .rule b{color:var(--ink-soft)}
 
   /* 餐牌一行 */
@@ -152,30 +141,8 @@
   .story__arc span small{display:block; color:var(--seal-gold); font-size:11px}
   .story__arc i{color:var(--seal-gold); font-style:normal; font-size:18px}
 
-  /* 內部備忘 */
-  .backstage{position:relative; margin-top:56px; padding-top:34px; border-top:3px double var(--line)}
-  .backstage__head{text-align:center; margin-bottom:6px}
-  .backstage__head .seal{width:40px; height:40px; margin:0 auto 10px; border-radius:50%;
-    background:var(--seal) center/cover; opacity:.85; box-shadow:0 0 0 1.5px var(--seal-gold)}
-  .backstage__head b{font-family:var(--font-disp); font-weight:900; font-size:20px; letter-spacing:5px; color:var(--red-deep)}
-  .backstage__head p{font-size:13px; color:var(--ink-faint); margin-top:4px}
-  .memo{background:var(--note-bg); border:1px solid var(--note-bd); border-left:5px solid var(--terra);
-    border-radius:10px; padding:15px 18px; margin:18px 0; font-size:13.5px; line-height:1.9; box-shadow:var(--shadow)}
-  .memo b{color:var(--red-deep)}
-  .memo__t{font-family:var(--font-disp); font-weight:900; font-size:15.5px; color:var(--red-deep); margin-bottom:5px}
-  .memo--ask{background:var(--flag-bg); border-color:var(--flag-bd); border-left-color:var(--flag)}
-  .memo--ask .memo__t{color:var(--flag)}
-  .memo ol{margin:8px 0 0 19px} .memo li{margin-bottom:6px}
-  .memo ul{list-style:none; margin-top:6px}
-  .memo ul li{position:relative; padding-left:17px}
-  .memo ul li::before{content:"·"; position:absolute; left:4px; top:-4px; color:var(--terra); font-size:19px; font-weight:700}
 
-  .foot{text-align:center; margin-top:52px; padding-top:24px; border-top:1px solid var(--line); color:var(--ink-faint); font-size:12.5px; line-height:1.9}
-  .foot__seal{width:52px; height:52px; margin:0 auto 12px; border-radius:50%; background:var(--seal) center/cover;
-    box-shadow:0 0 0 1.5px var(--seal-gold)}
-  .foot__brush{font-family:var(--font-brush); color:var(--seal-red); font-size:24px; letter-spacing:4px; display:block; margin-bottom:8px}
-
-  @media print{ .bar,.nav{display:none} body{background:#fff} }
+  @media print{ .bar{display:none} body{background:#fff} }
 </style>
 </head>
 <body>
@@ -199,28 +166,8 @@
     <div class="hero__latin">KAM DO</div>
   </header>
 
-  <p class="brush-line">返璞歸真 · 味道如昔</p>
-  <p class="hero__note">自己人先過目的稿，未上網。價錢未定的，位置先空著。</p>
-
-  <nav class="nav">
-    <a href="#drink">飲品</a>
-    <a href="#morning">早市</a>
-    <a href="#noon">午市</a>
-    <a href="#bakery">餅房</a>
-    <a href="#story">故事</a>
-    <a href="#backstage">內部備忘</a>
-  </nav>
-
-  <div class="five">
-    <div class="five__i"><b>茶餐廳</b><span>常餐 · 簡餐 · 飲品</span></div>
-    <div class="five__i"><b>餅房</b><span>菠蘿包 · 蛋塔 · 麵包</span></div>
-    <div class="five__i"><b>焗飯</b><span>紅汁 · 白汁，只此兩味</span></div>
-    <div class="five__i"><b>燒臘</b><span>店內掛，店內斬</span></div>
-    <div class="five__i"><b>大碗麵</b><span>自家車仔麵</span></div>
-  </div>
-
   <!-- 飲品 -->
-  <h2 class="block" id="drink">飲品 <span class="hours">全日</span></h2>
+  <h2 class="block" id="drink" style="margin-top:34px">飲品 <span class="hours">全日</span></h2>
   <div class="block-rule"></div>
   <div class="drinks">
     <span class="drink">港式咖啡</span>
@@ -232,64 +179,49 @@
   <p class="rule">餐內任選一款；單叫 <b>$5</b>。<b>凍熱同價，要凍不加錢。</b></p>
 
   <!-- 早市 -->
-  <h2 class="block" id="morning">早市 <span class="hours">7:00am – 11:30am · 最後落單 11:15am</span></h2>
+  <h2 class="block" id="morning">早市 <span class="hours">7:00am – 11:00am</span></h2>
   <div class="block-rule"></div>
 
-  <h3 class="sub">常餐 <small>連是日餐包（迷你菠蘿包／迷你雞尾包）＋ 飲品</small></h3>
   <div class="card">
     <div class="dish">
       <div class="dish__top">
         <span class="dish__name">A 餐<span class="h-badge"><i>H</i><b>健康</b></span></span>
         <span class="dish__dots"></span><span class="dish__price">$14.99</span>
       </div>
-      <div class="dish__body">火腿通粉、腸仔、<b>午餐肉</b>、炒蛋或煎蛋　<em>街外常餐只得一條腸仔，我們多一片午餐肉。</em></div>
+      <div class="dish__body">火腿通粉、腸仔、<b>午餐肉</b>、炒蛋或煎蛋　·　連是日餐包＋飲品</div>
     </div>
     <div class="dish">
       <div class="dish__top">
         <span class="dish__name">B 餐<span class="h-badge"><i>H</i><b>健康</b></span></span>
         <span class="dish__dots"></span><span class="dish__price">$14.99</span>
       </div>
-      <div class="dish__body">沙爹牛肉、炒蛋或煎蛋，粉麵二選一：<span class="pill">通粉</span><span class="pill">公仔麵</span></div>
+      <div class="dish__body">沙爹牛肉、炒蛋或煎蛋，粉麵二選一：<span class="pill">通粉</span><span class="pill">公仔麵</span>　·　連是日餐包＋飲品</div>
+    </div>
+    <div class="dish">
+      <div class="dish__top">
+        <span class="dish__name">C 餐</span>
+        <span class="dish__dots"></span><span class="dish__price">$8.99</span>
+      </div>
+      <div class="dish__body">
+        四選一，連飲品：<br>
+        <span class="pill">火腿雞蛋三明治</span><span class="pill">沙爹牛肉菠蘿包</span><span class="pill">蝦仁帶子炒蛋（方包三明治 或 菠蘿包）</span><span class="pill">沙爹牛肉長條三明治</span>
+      </div>
+      <div class="dish__body"><em>蝦與帶子全部自己做，不用現成急凍。長條包待阿豪哥開發（方包烘製，非越南法包）。</em></div>
     </div>
   </div>
-  <p class="rule">粉麵只此兩款，不設米粉、米線、出前一丁；蛋只有炒或煎。</p>
-
-  <h3 class="sub">簡餐 <small>全日供應至 5:30pm · 連飲品</small></h3>
-  <div class="card">
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">火腿雞蛋三明治<span class="h-badge"><i>H</i><b>健康</b></span></span>
-        <span class="dish__dots"></span><span class="dish__price">$8.99</span>
-      </div>
-      <div class="dish__body">自家方包</div>
-    </div>
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">沙爹牛肉菠蘿包</span>
-        <span class="dish__dots"></span><span class="dish__price">$8.99</span>
-      </div>
-    </div>
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">蝦仁帶子炒蛋<span class="h-badge"><i>H</i><b>健康</b></span></span>
-        <span class="dish__dots"></span><span class="dish__price tbd">價錢未定</span>
-      </div>
-      <div class="dish__body">載體二選一：<span class="pill">方包三明治</span><span class="pill">菠蘿包</span>　<em>蝦與帶子全部自己做，不用現成急凍。</em></div>
-    </div>
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">沙爹牛肉長條三明治</span>
-        <span class="dish__dots"></span><span class="dish__price tbd">價錢未定</span>
-      </div>
-      <div class="dish__body"><em>長條包待阿豪哥開發（方包烘製，非越南法包），未做得出先不上。</em></div>
+  <div class="must">
+    <div>
+      <b>是日餐包</b>：迷你菠蘿包 或 迷你雞尾包。<br>
+      <b>粉麵只此兩款</b>（通粉、公仔麵），不設米粉、米線、出前一丁。<br>
+      <b>蛋只有炒或煎</b>，兩款餐同例。
     </div>
   </div>
 
   <!-- 午市 -->
-  <h2 class="block" id="noon">午市 <span class="hours">11:30am 起 · 焗飯以外賣到 5:30pm</span></h2>
+  <h2 class="block" id="noon">午市 <span class="hours">11:00am 起 · 6:00pm 收工 · 人多可延長</span></h2>
   <div class="block-rule"></div>
 
-  <h3 class="sub">焗飯 <small>只做 11:30am – 2:00pm · 最後落單 1:45pm</small></h3>
+  <h3 class="sub">焗飯 <small>只做 11:00am – 2:00pm · 最後落單 1:45pm</small></h3>
   <div class="card">
     <div class="dish">
       <div class="dish__top">
@@ -301,26 +233,20 @@
   </div>
   <p class="rule">焗好放熱櫃，落單即取；不即叫即焗，賣完為止。</p>
 
-  <h3 class="sub">燒臘 <small>賣到 5:30pm</small></h3>
+  <h3 class="sub">燒臘 <small>賣到收工 · 售完即止</small></h3>
   <div class="card">
     <div class="dish">
       <div class="dish__top">
-        <span class="dish__name">雙拼飯</span>
+        <span class="dish__name">雙拼燒臘飯</span>
         <span class="dish__dots"></span><span class="dish__price">$15.99</span>
       </div>
-      <div class="dish__body">任選兩款：<span class="pill">豉油雞</span><span class="pill">叉燒</span><span class="pill">白切雞</span><span class="pill">鹵水鵝／鴨</span></div>
-    </div>
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">黃薑浸雞 <span class="new">限量</span></span>
-        <span class="dish__dots"></span><span class="dish__price tbd">價錢未定</span>
-      </div>
-      <div class="dish__body">一日限量，售完即止</div>
+      <div class="dish__body">任選兩款：<span class="pill">豉油雞</span><span class="pill">叉燒</span><span class="pill">白切雞</span><span class="pill">燒鴨</span><span class="pill">黃薑浸雞</span></div>
+      <div class="dish__body"><em>黃薑浸雞每日限量，售完即止。</em></div>
     </div>
   </div>
   <p class="rule">早上到貨，店內掛、店內斬，下午三點左右續斬。</p>
 
-  <h3 class="sub">大碗麵 <small>賣到 5:30pm</small></h3>
+  <h3 class="sub">大碗麵 <small>賣到收工</small></h3>
   <div class="card">
     <div class="dish">
       <div class="dish__top">
@@ -333,31 +259,7 @@
         <b>炆餸</b><span class="pill">豬手</span><span class="pill">牛筋</span><span class="pill">牛腩</span>　<b>丸類</b><span class="pill">魚腐</span><span class="pill">魚蛋</span><span class="pill">什丸</span>
       </div>
     </div>
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">加配</span>
-        <span class="dish__dots"></span><span class="dish__price tbd">見下</span>
-      </div>
-      <div class="dish__body">
-        炆餸 <b>+$3.50</b>（最多兩款）　丸類 <b>+$2.00</b>（最多三款）　加底或雙拼麵底 <b>+$2.00</b><br>
-        全配（炆餸三＋丸三）<b>$23.99</b>　<em>走配料不減價，配料固定份量。</em>
-      </div>
-    </div>
   </div>
-
-  <!-- 餅房 -->
-  <h2 class="block" id="bakery">餅房 <span class="hours">全日</span></h2>
-  <div class="block-rule"></div>
-  <div class="card">
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">菠蘿包 <span class="new">全店招牌</span></span>
-        <span class="dish__dots"></span><span class="dish__price tbd">價錢未定</span>
-      </div>
-      <div class="dish__body">連同各式麵包、蛋塔、中式酥餅　<em>款式與價錢等你開單。</em></div>
-    </div>
-  </div>
-  <p class="rule">四款簡餐全部用自家麵包做底。</p>
 
   <!-- 用料 -->
   <h2 class="block" id="quality">用料</h2>
@@ -382,61 +284,6 @@
       <span>餅房<small>後來那一章</small></span><i>→</i>
       <span>焗飯 · 燒臘 · 大碗麵<small>今日的一整餐</small></span>
     </div>
-  </div>
-
-  <!-- 內部備忘 -->
-  <div class="backstage" id="backstage">
-    <div class="backstage__head">
-      <div class="seal"></div>
-      <b>內 部 備 忘</b>
-      <p>自己人算的帳，不會印上餐牌</p>
-    </div>
-
-    <div class="memo memo--ask">
-      <div class="memo__t">等你一句話</div>
-      <ol>
-        <li>三味的價錢：蝦仁帶子炒蛋、沙爹牛肉長條三明治、黃薑浸雞。</li>
-        <li>餅房各式麵包的款式與價錢。</li>
-        <li>大碗麵加配價：炆餸 +$3.50、丸類 +$2.00、加底 +$2.00、全配 $23.99 —— 確認還是調？</li>
-        <li>網頁分法：我建議五樣本事做主，早市／午市做副。</li>
-        <li>H 標記要不要重新畫過？</li>
-        <li>下午大碗麵出多少（炆餸分兩鍋，下午開第二鍋，銷量未有數）。</li>
-        <li>線上落單：先做商場預訂表單（設截單時間、自動出生產清單），公開落單暫不做。</li>
-      </ol>
-    </div>
-
-    <div class="memo">
-      <div class="memo__t">幾個定下來的理由</div>
-      <ul>
-        <li><b>焗飯只做兩味</b> —— 汁一多熱櫃存不住。紅汁一定配豬扒飯，白汁一定配意粉，出品不用思考。</li>
-        <li><b>燒臘走浸雞＋掛爐燒味</b> —— 燒臘檔有掛爐、沒有焗爐。</li>
-        <li><b>黃薑浸雞近成本賣</b> —— 帶客上門用；出幾隻、整隻還是斬件配飯，未定。</li>
-        <li><b>大碗麵加配價</b> —— 炆餸要炆幾個鐘，成本重；丸類成本輕。設上限是為了守出品時間同碗的容量。</li>
-        <li><b>簡餐頂淡市</b> —— 由早市賣到收檔前，中午之後那段靠它。</li>
-      </ul>
-    </div>
-
-    <div class="memo">
-      <div class="memo__t">已經否決，不必再提</div>
-      <ul>
-        <li><b>咖哩焗飯系列</b>（豬／牛／雞）—— 汁一多熱櫃存不住，收窄為紅白兩汁。</li>
-        <li><b>肉醬肉丸焗飯</b> —— 同上。</li>
-      </ul>
-      兩味在舊堂食餐牌本來就有對應，配方現成；日後熱櫃有餘力可由這裏取材。
-    </div>
-
-    <div class="memo">
-      <div class="memo__t">時段</div>
-      早市 7:00–11:30（最後落單 11:15）· 焗飯 11:30–2:00（最後落單 1:45）· 其餘賣到 5:30 · 收檔 6:00。<br>
-      商場預訂每日 500–600 份，燒臘日銷約 $3,000 —— 餐牌不用改，人手與交收在
-      <a href="sop.html" style="color:var(--seal-red)">《開檔到收檔》</a>裏排好。
-    </div>
-  </div>
-
-  <div class="foot">
-    <div class="foot__seal"></div>
-    <span class="foot__brush">金都，味道如昔</span>
-    餐牌 v1.1 · 自己人看，未上網 · 二〇二六年八月
   </div>
 
 </div>
