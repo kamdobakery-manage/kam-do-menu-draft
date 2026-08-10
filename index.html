@@ -108,6 +108,23 @@
   .dish__body em{font-style:normal; color:var(--red-deep); font-weight:500}
   @media(max-width:560px){ .dish__top{flex-wrap:wrap} .dish__dots{display:none} .dish__price{margin-left:auto} }
 
+  /* 插畫 */
+  .art{width:100%; aspect-ratio:1/1; display:block; object-fit:cover;
+    border-radius:10px; background:var(--paper); box-shadow:0 7px 20px -15px #5c3f1cb0}
+  .dish--art{display:grid; grid-template-columns:152px 1fr; column-gap:20px; align-items:center}
+
+  .shots{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:12px; max-width:420px}
+  .shots figure{margin:0}
+  .shots figcaption{font-family:var(--font-disp); font-weight:700; font-size:12.5px; color:var(--ink-soft);
+    text-align:center; margin-top:6px; letter-spacing:.5px}
+
+  .must--art{display:grid; grid-template-columns:120px 1fr; gap:18px; align-items:center}
+
+  @media(max-width:560px){
+    .dish--art{grid-template-columns:96px 1fr; column-gap:13px}
+    .must--art{grid-template-columns:86px 1fr; gap:13px}
+  }
+
   .pill{display:inline-block; font-size:12px; background:var(--paper); border:1px solid var(--line);
     border-radius:20px; padding:2px 10px; margin:3px 4px 0 0; color:var(--ink)}
   .new{font-family:var(--font-disp); font-weight:700; font-size:11.5px; color:var(--seal-red); border:1px solid var(--seal-red);
@@ -183,19 +200,25 @@
   <div class="block-rule"></div>
 
   <div class="card">
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">A 餐<span class="h-badge"><i>H</i><b>健康</b></span></span>
-        <span class="dish__dots"></span><span class="dish__price">$14.99</span>
+    <div class="dish dish--art">
+      <img class="art" src="assets/menu-art/web/set-a.webp" alt="A 餐 · 火腿通粉、腸仔、午餐肉、炒蛋">
+      <div>
+        <div class="dish__top">
+          <span class="dish__name">A 餐<span class="h-badge"><i>H</i><b>健康</b></span></span>
+          <span class="dish__dots"></span><span class="dish__price">$14.99</span>
+        </div>
+        <div class="dish__body">火腿通粉、腸仔、<b>午餐肉</b>、炒蛋或煎蛋　·　連是日餐包＋飲品</div>
       </div>
-      <div class="dish__body">火腿通粉、腸仔、<b>午餐肉</b>、炒蛋或煎蛋　·　連是日餐包＋飲品</div>
     </div>
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">B 餐<span class="h-badge"><i>H</i><b>健康</b></span></span>
-        <span class="dish__dots"></span><span class="dish__price">$14.99</span>
+    <div class="dish dish--art">
+      <img class="art" src="assets/menu-art/web/set-b.webp" alt="B 餐 · 沙爹牛肉、炒蛋">
+      <div>
+        <div class="dish__top">
+          <span class="dish__name">B 餐<span class="h-badge"><i>H</i><b>健康</b></span></span>
+          <span class="dish__dots"></span><span class="dish__price">$14.99</span>
+        </div>
+        <div class="dish__body">沙爹牛肉、炒蛋或煎蛋，粉麵二選一：<span class="pill">通粉</span><span class="pill">公仔麵</span>　·　連是日餐包＋飲品</div>
       </div>
-      <div class="dish__body">沙爹牛肉、炒蛋或煎蛋，粉麵二選一：<span class="pill">通粉</span><span class="pill">公仔麵</span>　·　連是日餐包＋飲品</div>
     </div>
     <div class="dish">
       <div class="dish__top">
@@ -206,10 +229,21 @@
         四選一，連飲品：<br>
         <span class="pill">火腿雞蛋三明治</span><span class="pill">沙爹牛肉菠蘿包</span><span class="pill">蝦仁帶子炒蛋（方包三明治 或 菠蘿包）</span><span class="pill">沙爹牛肉長條三明治</span>
       </div>
+      <div class="shots">
+        <figure>
+          <img class="art" src="assets/menu-art/web/c-sandwich-ham.webp" alt="火腿雞蛋三明治">
+          <figcaption>火腿雞蛋三明治</figcaption>
+        </figure>
+        <figure>
+          <img class="art" src="assets/menu-art/web/c-bun-satay.webp" alt="沙爹牛肉菠蘿包">
+          <figcaption>沙爹牛肉菠蘿包</figcaption>
+        </figure>
+      </div>
       <div class="dish__body"><em>蝦與帶子全部自己做，不用現成急凍。長條包待阿豪哥開發（方包烘製，非越南法包）。</em></div>
     </div>
   </div>
-  <div class="must">
+  <div class="must must--art">
+    <img class="art" src="assets/menu-art/web/buns-daily.webp" alt="是日餐包 · 迷你菠蘿包、迷你雞尾包">
     <div>
       <b>是日餐包</b>：迷你菠蘿包 或 迷你雞尾包。<br>
       <b>粉麵只此兩款</b>（通粉、公仔麵），不設米粉、米線、出前一丁。<br>
@@ -229,19 +263,32 @@
         <span class="dish__dots"></span><span class="dish__price">$15.99</span>
       </div>
       <div class="dish__body">二選一：<span class="pill">紅汁 · 焗豬扒飯</span><span class="pill">白汁 · 焗海鮮意粉（加魚柳）</span></div>
+      <div class="shots">
+        <figure>
+          <img class="art" src="assets/menu-art/web/baked-porkchop.webp" alt="紅汁焗豬扒飯">
+          <figcaption>紅汁 · 焗豬扒飯</figcaption>
+        </figure>
+        <figure>
+          <img class="art" src="assets/menu-art/web/baked-seafood.webp" alt="白汁焗海鮮意粉">
+          <figcaption>白汁 · 焗海鮮意粉</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
   <p class="rule">焗好放熱櫃，落單即取；不即叫即焗，賣完為止。</p>
 
   <h3 class="sub">燒臘 <small>賣到收工 · 售完即止</small></h3>
   <div class="card">
-    <div class="dish">
-      <div class="dish__top">
-        <span class="dish__name">雙拼燒臘飯</span>
-        <span class="dish__dots"></span><span class="dish__price">$15.99</span>
+    <div class="dish dish--art">
+      <img class="art" src="assets/menu-art/web/bbq-rice.webp" alt="雙拼燒臘飯">
+      <div>
+        <div class="dish__top">
+          <span class="dish__name">雙拼燒臘飯</span>
+          <span class="dish__dots"></span><span class="dish__price">$15.99</span>
+        </div>
+        <div class="dish__body">任選兩款：<span class="pill">豉油雞</span><span class="pill">叉燒</span><span class="pill">白切雞</span><span class="pill">燒鴨</span><span class="pill">黃薑浸雞</span></div>
+        <div class="dish__body"><em>黃薑浸雞每日限量，售完即止。</em></div>
       </div>
-      <div class="dish__body">任選兩款：<span class="pill">豉油雞</span><span class="pill">叉燒</span><span class="pill">白切雞</span><span class="pill">燒鴨</span><span class="pill">黃薑浸雞</span></div>
-      <div class="dish__body"><em>黃薑浸雞每日限量，售完即止。</em></div>
     </div>
   </div>
   <p class="rule">早上到貨，店內掛、店內斬，下午三點左右續斬。</p>
